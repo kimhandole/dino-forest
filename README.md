@@ -11,7 +11,7 @@ In addition, this project will include:
 * A production README
 
 ## Wireframes
-
+![Wireframe Image](endless-runner.png "Wireframe Image")
 
 ## Architecture and Technologies
 This project will be implemented with the following technologies:
