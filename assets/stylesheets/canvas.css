@@ -1,0 +1,20 @@
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #004048;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    overflow-y: hidden;
+}
+
+.canvases {
+    width: 928px;
+    height: 793px;
+    background: transparent;
+    box-shadow: 1px 2px 60px rgba(0, 0, 0, 0.4);
+    border-radius: 2px;
+}
