@@ -17,4 +17,5 @@ body {
     background: transparent;
     box-shadow: 1px 2px 60px rgba(0, 0, 0, 0.4);
     border-radius: 2px;
+    background: url(../images/background/background-layer0.png);
 }

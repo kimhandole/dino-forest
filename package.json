@@ -1,0 +1,28 @@
+{
+  "name": "endless-runner",
+  "version": "1.0.0",
+  "description": "Infinite runner is one of the endless runner games. The player gets points for running longer distances.",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "webpack": "^4.41.5"
+  },
+  "devDependencies": {
+    "file-loader": "^4.0.0",
+    "url-loader": "^2.0.1",
+    "webpack-cli": "^3.3.10"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kimhandole/endless-runner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kimhandole/endless-runner/issues"
+  },
+  "homepage": "https://github.com/kimhandole/endless-runner#readme"
+}
