@@ -1,24 +1,23 @@
 const SPRITES = {
     idle1: [0, 0, 24, 24],
     idle2: [24, 0, 24, 24],
-    walk1: [432, 0, 24, 24],
-    walk2: [456, 0, 24, 24],
-    walk3: [480, 0, 24, 24],
-    walk4: [504, 0, 24, 24],
-    walk5: [528, 0, 24, 24],
-    walk6: [552, 0, 24, 24],
-    walk7: [576, 0, 24, 24],
-    firstJumpType1: [48, 0, 24, 24],
-    firstJumpType2: [72, 0, 24, 24],
-    firstJumpType3: [96, 0, 24, 24],
-    firstJumpType4: [120, 0, 24, 24],
+    idle3: [48, 0, 24, 24],
+    walk1: [408, 0, 24, 24],
+    walk2: [432, 0, 24, 24],
+    walk3: [456, 0, 24, 24],
+    walk4: [480, 0, 24, 24],
+    walk5: [504, 0, 24, 24],
+    walk6: [528, 0, 24, 24],
+    walk7: [552, 0, 24, 24],
+    firstJumpType1: [72, 0, 24, 24],
+    firstJumpType2: [96, 0, 24, 24],
+    firstJumpType3: [120, 0, 24, 24],
     secondJumpType1: [144, 0, 24, 24],
     secondJumpType2: [168, 0, 24, 24],
     secondJumpType3: [192, 0, 24, 24],
-    secondJumpType4: [218, 0, 24, 24],
-    hurt1: [314, 0, 24, 24],
-    hurt2: [338, 0, 24, 24],
-    hurt3: [362, 0, 24, 24]
+    hurt1: [336, 0, 24, 24],
+    hurt2: [360, 0, 24, 24],
+    hurt3: [384, 0, 24, 24]
 };
 
 class Player {
@@ -27,8 +26,9 @@ class Player {
         this.spriteSheet = options.spriteSheet;
 
         this.jumping = false;
+        this.jumpingAnimation = 0;
+        this.jumpTypeSwitch = true;
         this.jumpCount = 0;
-        this.jumpingUp = true;
         
         this.walkCycle = 0;
         this.walkspeed = options.walkspeed ? options.walkspeed : 1;
@@ -38,59 +38,66 @@ class Player {
     }
 
     getSprite() {
+        // console.log(this.position, "POSITION")
+
         // idle
         if (this.walkCycle === 0 && !this.jumping) {
-            // increment or reset idleCount
-            if (this.idleCount === 15) {
-                this.idleCount = 0;
-                this.idleSwitch = !this.idleSwitch;
+            if (this.idleCount < 10) {
+                this.idleCount += 1;
+                return SPRITES.idle1;
+            } else if (this.idleCount < 20) {
+                this.idleCount += 1;
+                return SPRITES.idle2;
             } else {
                 this.idleCount += 1;
-            }
-
-            // return idle
-            if (this.idleSwitch) {
-                return SPRITES.idle1;
-            }
-            else {
-                return SPRITES.idle2;
+                if(this.idleCount === 30) {
+                    this.idleCount = 0;
+                }
+                return SPRITES.idle3
             }
         } 
         // jump
-        else if (!this.onGround()) {
-            if (this.jumpingUp && this.position[1] < 618) {
-                return SPRITES.firstJumpType1;
-            } else if (this.jumpingUp && this.postion[1] < 500) {
-                this.jumpingUp = false;
-                return SPRITES.firstJumpType2;
-            } else if (!this.jumpingUp && this.postion[1] < 500) {
-                return SPRITES.firstJumpType3;
-            } else if (!this.jumpingUp && this.postion[1] < 618) {
-                this.jumpingUp = true;
-                return SPRITES.firstJumpType4;
+        else if (this.jumping) {
+            if (this.jumpingAnimation === 0) {
+                if (this.position[1] === 526) {
+                    this.jumpingAnimation = 1;
+                }
+                return this.jumpTypeSwitch ? SPRITES.firstJumpType1 : SPRITES.secondJumpType1;
+            } 
+            else if (this.jumpingAnimation === 1) {
+                if(this.position[1] === 602) {
+                    this.jumpingAnimation = 2;
+                }
+                return this.jumpTypeSwitch ? SPRITES.firstJumpType2 : SPRITES.secondJumpType2;
             }
-
+            else if (this.jumpingAnimation === 2) {
+                if (this.position[1] === 712) {
+                    this.jumpingAnimation = 0;
+                    this.jumpTypeSwitch = !this.jumpTypeSwitch
+                }
+                return this.jumpTypeSwitch ? SPRITES.firstJumpType3 : SPRITES.secondJumpType3;
+            }
         } 
         // walk
-        else if (this.walkCycle < 5) {
+        else if (this.walkCycle > 0 && this.walkCycle < 5) {
             this.walkCycle += 1;
             return SPRITES.walk1;
-        } else if(this.walkCycle < 10) {
+        } else if (this.walkCycle > 0 && this.walkCycle < 10) {
             this.walkCycle += 1;
             return SPRITES.walk2;
-        } else if(this.walkCycle < 15) {
+        } else if (this.walkCycle > 0 && this.walkCycle < 15) {
             this.walkCycle += 1;
             return SPRITES.walk3;
-        } else if(this.walkCycle < 20) {
+        } else if (this.walkCycle > 0 && this.walkCycle < 20) {
             this.walkCycle += 1;
             return SPRITES.walk4;
-        } else if (this.walkCycle < 25) {
+        } else if (this.walkCycle > 0 && this.walkCycle < 25) {
             this.walkCycle += 1;
             return SPRITES.walk5;
-        } else if (this.walkCycle < 30) {
+        } else if (this.walkCycle > 0 && this.walkCycle < 30) {
             this.walkCycle += 1;
             return SPRITES.walk6;
-        } else if (this.walkCycle < 35) {
+        } else if (this.walkCycle > 0 && this.walkCycle < 35) {
             this.walkCycle += 1;
             return SPRITES.walk7;
         } else {
@@ -127,11 +134,10 @@ class Player {
     }
 
     draw(ctx) {
-        // console.log(this.position);
-        ctx.clearRect(this.position[0], this.position[1], 48, 48);
+        ctx.clearRect(this.position[0]-12, this.position[1]-12, 48, 48);
         const sprite = this.getSprite();
         // console.log(this.spriteSheet);
-        console.log(sprite);
+        // console.log(sprite, "SPRITE");
         ctx.drawImage(
             this.spriteSheet,
             sprite[0],
