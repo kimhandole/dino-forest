@@ -5,6 +5,12 @@ const HEIGHT = 793;
 
 
 document.addEventListener('DOMContentLoaded', () => {
+    // game 
+    const gameCanvas = document.getElementById("game-canvas");
+    gameCanvas.width = WIDTH;
+    gameCanvas.height = HEIGHT;
+    const gameContext = gameCanvas.getContext("2d");
+
     // background layer 1
     const background1Canvas = document.getElementById("background1-canvas");
     background1Canvas.width = WIDTH;
@@ -66,6 +72,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const background10Context = background10Canvas.getContext("2d");
 
     const game = new Game(
+        gameCanvas,
+        gameContext,
         background1Context,
         background2Context,
         background3Context,
