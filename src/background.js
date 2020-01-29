@@ -16,7 +16,7 @@ class Background {
 
     draw() {
         this.ctx.clearRect(0, 0, 928, 793);
-        this.ctx.drawImage(this.image, 0, 0, 928, 793, 0, 0, 928, 793);
+        this.ctx.drawImage(this.image, this.x, this.y);
         this.ctx.drawImage(this.image, this.x + this.imageLength, this.y);
 
         if (this.imageLength < 928) {
@@ -28,7 +28,7 @@ class Background {
         }
 
         this.scrollImage();
-    }
+    } 
 }
 
 export default Background;

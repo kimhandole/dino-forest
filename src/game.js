@@ -15,7 +15,7 @@ const Player1URL = require("../assets/images/player/dino-red.png");
 const Player2URL = require("../assets/images/player/dino-blue.png");
 const Player3URL = require("../assets/images/player/dino-green.png");
 const Player4URL = require("../assets/images/player/dino-yellow.png");
-
+const players = [Player1URL, Player2URL, Player3URL, Player4URL];
 
 
 
@@ -88,52 +88,52 @@ class Game {
 
     // backgrounds
     setBackground1() {
-        this.background1 = new Background(this.background1Context, this.background1Image, 0, 928, 0.8);
+        this.background1 = new Background(this.background1Context, this.background1Image, 0, 928, 0.6);
         this.background1.draw();
     }
 
     setBackground2() {
-        this.background2 = new Background(this.background2Context, this.background2Image, 0, 928, 0.9);
+        this.background2 = new Background(this.background2Context, this.background2Image, 0, 928, 0.7);
         this.background2.draw();
     }
 
     setBackground3() {
-        this.background3 = new Background(this.background2Context, this.background2Image, 0, 928, 1);
+        this.background3 = new Background(this.background2Context, this.background2Image, 0, 928, 0.82);
         this.background3.draw();
     }
 
     setBackground4() {
-        this.background4 = new Background(this.background4Context, this.background4Image, 0, 928, 1);
+        this.background4 = new Background(this.background4Context, this.background4Image, 0, 928, 0.84);
         this.background4.draw();
     }
 
     setBackground5() {
-        this.background5 = new Background(this.background5Context, this.background5Image, 0, 928, 2);
+        this.background5 = new Background(this.background5Context, this.background5Image, 0, 928, 0.92);
         this.background5.draw();
     }
 
     setBackground6() {
-        this.background6 = new Background(this.background6Context, this.background6Image, 0, 928, 2);
+        this.background6 = new Background(this.background6Context, this.background6Image, 0, 928, 1);
         this.background6.draw();
     }
 
     setBackground7() {
-        this.background7 = new Background(this.background7Context, this.background7Image, 0, 928, 3);
+        this.background7 = new Background(this.background7Context, this.background7Image, 0, 928, 1.1);
         this.background7.draw();
     }
 
     setBackground8() {
-        this.background8 = new Background(this.background8Context, this.background8Image, 0, 928, 4);
+        this.background8 = new Background(this.background8Context, this.background8Image, 0, 928, 1.14);
         this.background8.draw();
     }
 
     setBackground9() {
-        this.background9 = new Background(this.background9Context, this.background9Image, 0, 928, 5);
+        this.background9 = new Background(this.background9Context, this.background9Image, 0, 928, 1.3);
         this.background9.draw();
     }
 
     setBackground10() {
-        this.background10 = new Background(this.background10Context, this.background10Image, 0, 928, 6);
+        this.background10 = new Background(this.background10Context, this.background10Image, 0, 928, 1.6);
         this.background10.draw();
     }
 
@@ -145,7 +145,8 @@ class Game {
     createPlayer() {
         this.playerImage = new Image();
         this.playerImage.addEventListener("load", this.setPlayer);
-        this.playerImage.src = Player3URL;
+        const player = players[Math.floor(Math.random()*players.length)];
+        this.playerImage.src = player;
     }
 
     createBackground() {
@@ -194,6 +195,18 @@ class Game {
         this.player.update(this.gameContext)
         // setTimeout(() => requestAnimationFrame(this.draw), 210);
         requestAnimationFrame(this.draw)
+
+
+        this.background1.draw();
+        this.background2.draw();
+        this.background3.draw();
+        this.background4.draw();
+        this.background5.draw();
+        this.background6.draw();
+        this.background7.draw();
+        this.background8.draw();
+        this.background9.draw();
+        this.background10.draw();
     }
 }
 

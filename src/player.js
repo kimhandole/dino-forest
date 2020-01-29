@@ -101,7 +101,7 @@ class Player {
             this.walkCycle += 1;
             return SPRITES.walk7;
         } else {
-            // this.walkCycle = 0;
+            this.walkCycle = 0;
         }
     }
 
