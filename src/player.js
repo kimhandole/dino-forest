@@ -30,7 +30,7 @@ class Player {
         this.jumpTypeSwitch = true;
         this.jumpCount = 0;
         
-        this.walkCycle = 0;
+        this.walkCycle = 1;
         this.walkspeed = options.walkspeed ? options.walkspeed : 1;
 
         this.idleSwitch = true;
@@ -79,30 +79,31 @@ class Player {
             }
         } 
         // walk
-        else if (this.walkCycle > 0 && this.walkCycle < 5) {
+        else if (this.walkCycle > 0 && this.walkCycle < 7) {
             this.walkCycle += 1;
             return SPRITES.walk1;
-        } else if (this.walkCycle > 0 && this.walkCycle < 10) {
+        } else if (this.walkCycle > 0 && this.walkCycle < 14) {
             this.walkCycle += 1;
             return SPRITES.walk2;
-        } else if (this.walkCycle > 0 && this.walkCycle < 15) {
+        } else if (this.walkCycle > 0 && this.walkCycle < 21) {
             this.walkCycle += 1;
             return SPRITES.walk3;
-        } else if (this.walkCycle > 0 && this.walkCycle < 20) {
+        } else if (this.walkCycle > 0 && this.walkCycle < 28) {
             this.walkCycle += 1;
             return SPRITES.walk4;
-        } else if (this.walkCycle > 0 && this.walkCycle < 25) {
-            this.walkCycle += 1;
-            return SPRITES.walk5;
-        } else if (this.walkCycle > 0 && this.walkCycle < 30) {
-            this.walkCycle += 1;
-            return SPRITES.walk6;
         } else if (this.walkCycle > 0 && this.walkCycle < 35) {
             this.walkCycle += 1;
+            return SPRITES.walk5;
+        } else if (this.walkCycle > 0 && this.walkCycle < 42) {
+            this.walkCycle += 1;
+            return SPRITES.walk6;
+        } else if (this.walkCycle > 0 && this.walkCycle < 49) {
+            this.walkCycle += 1;
+            if (this.walkCycle === 49) {
+                this.walkCycle = 1;
+            }
             return SPRITES.walk7;
-        } else {
-            this.walkCycle = 0;
-        }
+        } 
     }
 
     onGround() {
@@ -137,7 +138,6 @@ class Player {
         ctx.clearRect(this.position[0]-12, this.position[1]-12, 48, 48);
         const sprite = this.getSprite();
         // console.log(this.spriteSheet);
-        // console.log(sprite, "SPRITE");
         ctx.drawImage(
             this.spriteSheet,
             sprite[0],
