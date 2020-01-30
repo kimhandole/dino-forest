@@ -113,27 +113,27 @@ class Game {
     }
     // light
     setBackground6() {
-        this.background6 = new Background(this.background6Context, this.background6Image, 0, 928, 0.55);
+        this.background6 = new Background(this.background6Context, this.background6Image, 0, 928, 0.68);
         this.background6.draw();
     }
     // tree bottom
     setBackground7() {
-        this.background7 = new Background(this.background7Context, this.background7Image, 0, 928, 0.6);
+        this.background7 = new Background(this.background7Context, this.background7Image, 0, 928, 0.55);
         this.background7.draw();
     }
     // tree top
     setBackground8() {
-        this.background8 = new Background(this.background8Context, this.background8Image, 0, 928, 0.9);
+        this.background8 = new Background(this.background8Context, this.background8Image, 0, 928, 0.8);
         this.background8.draw();
     }
     // ground
     setBackground9() {
-        this.background9 = new Background(this.background9Context, this.background9Image, 0, 928, 0.9);
+        this.background9 = new Background(this.background9Context, this.background9Image, 0, 928, 0.8);
         this.background9.draw();
     }
 
     setBackground10() {
-        this.background10 = new Background(this.background10Context, this.background10Image, 0, 928, 1.1);
+        this.background10 = new Background(this.background10Context, this.background10Image, 0, 928, 0.9);
         this.background10.draw();
     }
 

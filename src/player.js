@@ -59,13 +59,13 @@ class Player {
         // jump
         else if (this.jumping) {
             if (this.jumpingAnimation === 0) {
-                if (this.position[1] === 526) {
+                if (this.position[1] === 582) {
                     this.jumpingAnimation = 1;
                 }
                 return this.jumpTypeSwitch ? SPRITES.firstJumpType1 : SPRITES.secondJumpType1;
             } 
             else if (this.jumpingAnimation === 1) {
-                if(this.position[1] === 602) {
+                if(this.position[1] === 658) {
                     this.jumpingAnimation = 2;
                 }
                 return this.jumpTypeSwitch ? SPRITES.firstJumpType2 : SPRITES.secondJumpType2;
@@ -79,27 +79,27 @@ class Player {
             }
         } 
         // walk
-        else if (this.walkCycle > 0 && this.walkCycle < 8) {
+        else if (this.walkCycle > 0 && this.walkCycle < 9) {
             this.walkCycle += 1;
             return SPRITES.walk1;
-        } else if (this.walkCycle > 0 && this.walkCycle < 14) {
+        } else if (this.walkCycle > 0 && this.walkCycle < 17) {
             this.walkCycle += 1;
             return SPRITES.walk2;
-        } else if (this.walkCycle > 0 && this.walkCycle < 21) {
+        } else if (this.walkCycle > 0 && this.walkCycle < 25) {
             this.walkCycle += 1;
             return SPRITES.walk3;
-        } else if (this.walkCycle > 0 && this.walkCycle < 28) {
+        } else if (this.walkCycle > 0 && this.walkCycle < 32) {
             this.walkCycle += 1;
             return SPRITES.walk4;
-        } else if (this.walkCycle > 0 && this.walkCycle < 35) {
+        } else if (this.walkCycle > 0 && this.walkCycle < 40) {
             this.walkCycle += 1;
             return SPRITES.walk5;
-        } else if (this.walkCycle > 0 && this.walkCycle < 42) {
+        } else if (this.walkCycle > 0 && this.walkCycle < 48) {
             this.walkCycle += 1;
             return SPRITES.walk6;
-        } else if (this.walkCycle > 0 && this.walkCycle < 49) {
+        } else if (this.walkCycle > 0 && this.walkCycle < 56) {
             this.walkCycle += 1;
-            if (this.walkCycle === 49) {
+            if (this.walkCycle === 56) {
                 this.walkCycle = 1;
             }
             return SPRITES.walk7;
@@ -115,8 +115,8 @@ class Player {
     }
 
     jump() {
-        const gravity = 0.40;
-        const initialSpeed = 12;
+        const gravity = 0.4;
+        const initialSpeed = 10;
         if (this.jumping) {
             if (this.jumpCount === 0 || !this.onGround()) {
                 this.position[1] -= initialSpeed - gravity * this.jumpCount;
