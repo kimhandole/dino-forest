@@ -79,7 +79,7 @@ class Player {
             }
         } 
         // walk
-        else if (this.walkCycle > 0 && this.walkCycle < 7) {
+        else if (this.walkCycle > 0 && this.walkCycle < 8) {
             this.walkCycle += 1;
             return SPRITES.walk1;
         } else if (this.walkCycle > 0 && this.walkCycle < 14) {

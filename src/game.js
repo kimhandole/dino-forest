@@ -88,27 +88,27 @@ class Game {
 
     // backgrounds
     setBackground1() {
-        this.background1 = new Background(this.background1Context, this.background1Image, 0, 928, 0.1);
+        this.background1 = new Background(this.background1Context, this.background1Image, 0, 928, 0);
         this.background1.draw();
     }
 
     setBackground2() {
-        this.background2 = new Background(this.background2Context, this.background2Image, 0, 928, 0.2);
+        this.background2 = new Background(this.background2Context, this.background2Image, 0, 928, 0.1);
         this.background2.draw();
     }
     // light
     setBackground3() {
-        this.background3 = new Background(this.background2Context, this.background2Image, 0, 928, 0.3);
+        this.background3 = new Background(this.background2Context, this.background2Image, 0, 928, 0.2);
         this.background3.draw();
     }
 
     setBackground4() {
-        this.background4 = new Background(this.background4Context, this.background4Image, 0, 928, 0.5);
+        this.background4 = new Background(this.background4Context, this.background4Image, 0, 928, 0.3);
         this.background4.draw();
     }
 
     setBackground5() {
-        this.background5 = new Background(this.background5Context, this.background5Image, 0, 928, 0.6);
+        this.background5 = new Background(this.background5Context, this.background5Image, 0, 928, 0.45);
         this.background5.draw();
     }
     // light
@@ -118,12 +118,12 @@ class Game {
     }
     // tree bottom
     setBackground7() {
-        this.background7 = new Background(this.background7Context, this.background7Image, 0, 928, 0.8);
+        this.background7 = new Background(this.background7Context, this.background7Image, 0, 928, 0.7);
         this.background7.draw();
     }
     // tree top
     setBackground8() {
-        this.background8 = new Background(this.background8Context, this.background8Image, 0, 928, 0.8);
+        this.background8 = new Background(this.background8Context, this.background8Image, 0, 928, 0.9);
         this.background8.draw();
     }
     // ground
@@ -133,7 +133,7 @@ class Game {
     }
 
     setBackground10() {
-        this.background10 = new Background(this.background10Context, this.background10Image, 0, 928, 1.3);
+        this.background10 = new Background(this.background10Context, this.background10Image, 0, 928, 1.1);
         this.background10.draw();
     }
 
