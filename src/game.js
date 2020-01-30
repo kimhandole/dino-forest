@@ -113,12 +113,12 @@ class Game {
     }
     // light
     setBackground6() {
-        this.background6 = new Background(this.background6Context, this.background6Image, 0, 928, 0.65);
+        this.background6 = new Background(this.background6Context, this.background6Image, 0, 928, 0.55);
         this.background6.draw();
     }
     // tree bottom
     setBackground7() {
-        this.background7 = new Background(this.background7Context, this.background7Image, 0, 928, 0.7);
+        this.background7 = new Background(this.background7Context, this.background7Image, 0, 928, 0.6);
         this.background7.draw();
     }
     // tree top
