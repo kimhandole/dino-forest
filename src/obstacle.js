@@ -9,6 +9,10 @@ class Obstacle {
         this.position[0] -= this.speed;
     }
 
+    outOfBounds() {
+        return this.position[0] < -64;
+    }
+
     step(ctx) {
         this.draw(ctx);
         this.move();

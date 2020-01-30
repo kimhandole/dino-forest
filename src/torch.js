@@ -18,12 +18,11 @@ const TORCH_HITBOX_OFFSET = {
 
 class Torch extends Obstacle {
     constructor(options) {
-        options.hitboxOffset = TREE_HITBOX_OFFSET;
+        options.hitboxOffset = TORCH_HITBOX_OFFSET;
         super(options);
 
         this.spriteSheet = new Image();
-        this.spriteSheet.src = "./assets/images/obstacle/torch.png";
-
+        this.spriteSheet.src = options.spriteSheetSrc;
         this.idleCount = 0;
     }
 
@@ -53,7 +52,7 @@ class Torch extends Obstacle {
         }
     }
 
-    draw() {
+    draw(ctx) {
         const sprite = this.getSprite();
         ctx.drawImage(
             this.spriteSheet,

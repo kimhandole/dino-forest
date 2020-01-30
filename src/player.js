@@ -20,27 +20,57 @@ const SPRITES = {
     hurt3: [384, 0, 24, 24]
 };
 
+const PLAYER_HITBOX_OFFSET = {
+    posX: 3,
+    posY: 9,
+    sizeX: 27,
+    sizeY: 50,
+};
+
 class Player {
     constructor(options) {
         this.position = options.position;
         this.spriteSheet = options.spriteSheet;
 
+        // jump
         this.jumping = false;
         this.jumpingAnimation = 0;
         this.jumpTypeSwitch = true;
         this.jumpCount = 0;
         
+        // walk
         this.walkCycle = 1;
         this.walkspeed = options.walkspeed ? options.walkspeed : 1;
 
+        // idle
         this.idleCount = 0;
+
+        // hurt 
+        this.hurt = false
+        this.hurtCount = 0;
     }
 
     getSprite() {
         // console.log(this.position, "POSITION")
-
+        // hurt 
+        if (this.hurt) {
+            if (this.hurtCount < 5) {
+                this.hurtCount += 1;
+                return SPRITES.hurt1;
+            } else if (this.hurtCount < 10) {
+                this.hurtCount += 1;
+                return SPRITES.hurt2;
+            } else {
+                this.hurtCount += 1;
+                if (this.hurtCount === 15) {
+                    this.hurtCount = 0;
+                    this.hurt = false;
+                }
+                return SPRITES.hurt3
+            }
+        }
         // idle
-        if (this.walkCycle === 0 && !this.jumping) {
+        else if (this.walkCycle === 0 && !this.jumping) {
             if (this.idleCount < 10) {
                 this.idleCount += 1;
                 return SPRITES.idle1;
@@ -78,27 +108,24 @@ class Player {
             }
         } 
         // walk
-        else if (this.walkCycle > 0 && this.walkCycle < 9) {
-            this.walkCycle += 1;
-            return SPRITES.walk1;
-        } else if (this.walkCycle > 0 && this.walkCycle < 17) {
+        else if (this.walkCycle > 0 && this.walkCycle < 5) {
             this.walkCycle += 1;
             return SPRITES.walk2;
-        } else if (this.walkCycle > 0 && this.walkCycle < 25) {
+        } else if (this.walkCycle > 0 && this.walkCycle < 10) {
             this.walkCycle += 1;
             return SPRITES.walk3;
-        } else if (this.walkCycle > 0 && this.walkCycle < 32) {
+        } else if (this.walkCycle > 0 && this.walkCycle < 15) {
             this.walkCycle += 1;
             return SPRITES.walk4;
-        } else if (this.walkCycle > 0 && this.walkCycle < 40) {
+        } else if (this.walkCycle > 0 && this.walkCycle < 20) {
             this.walkCycle += 1;
             return SPRITES.walk5;
-        } else if (this.walkCycle > 0 && this.walkCycle < 48) {
+        } else if (this.walkCycle > 0 && this.walkCycle < 25) {
             this.walkCycle += 1;
             return SPRITES.walk6;
-        } else if (this.walkCycle > 0 && this.walkCycle < 56) {
+        } else if (this.walkCycle > 0 && this.walkCycle < 30) {
             this.walkCycle += 1;
-            if (this.walkCycle === 56) {
+            if (this.walkCycle === 30) {
                 this.walkCycle = 1;
             }
             return SPRITES.walk7;
@@ -128,13 +155,35 @@ class Player {
         }
     }
 
+    collidedWith(obstacle) {
+        const playerHitbox = this.hitbox();
+        const obstacleHitbox = obstacle.hitbox();
+        return !(
+            playerHitbox.maxX < obstacleHitbox.minX ||
+            playerHitbox.minX > obstacleHitbox.maxX ||
+            playerHitbox.maxY < obstacleHitbox.minY ||
+            playerHitbox.minY > obstacleHitbox.maxY
+        );
+    }
+
+    hitbox() {
+        return {
+            minX: this.position[0] + PLAYER_HITBOX_OFFSET.posX,
+            maxX: this.position[0] + PLAYER_HITBOX_OFFSET.posX + PLAYER_HITBOX_OFFSET.sizeX,
+            minY: this.position[1] + PLAYER_HITBOX_OFFSET.posY,
+            maxY: this.position[1] + PLAYER_HITBOX_OFFSET.posY + PLAYER_HITBOX_OFFSET.sizeY,
+        };
+    }
+
     update(ctx) {
         this.jump();
         this.draw(ctx);
     }
 
     draw(ctx) {
-        ctx.clearRect(this.position[0]-12, this.position[1]-12, 48, 48);
+        ctx.clearRect(0, 0, 928, 793);
+
+        // ctx.clearRect(this.position[0]-12, this.position[1]-12, 48, 48);
         const sprite = this.getSprite();
         // console.log(this.spriteSheet);
         ctx.drawImage(

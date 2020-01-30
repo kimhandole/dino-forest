@@ -1,4 +1,11 @@
 import Background from './background';
+import Player from './player';
+import Fireplace from './fireplace';
+import Torch from './torch';
+import Util from './util';
+
+
+// load image files
 const Background1URL = require("../assets/images/background/background-layer1.png");
 const Background2URL = require("../assets/images/background/background-layer2.png");
 const Background3URL = require("../assets/images/background/background-layer3.png");
@@ -10,12 +17,15 @@ const Background8URL = require("../assets/images/background/background-layer8.pn
 const Background9URL = require("../assets/images/background/background-layer9.png");
 const Background10URL = require("../assets/images/background/background-layer10.png");
 
-import Player from './player';
 const Player1URL = require("../assets/images/player/dino-red.png");
 const Player2URL = require("../assets/images/player/dino-blue.png");
 const Player3URL = require("../assets/images/player/dino-green.png");
 const Player4URL = require("../assets/images/player/dino-yellow.png");
 const players = [Player1URL, Player2URL, Player3URL, Player4URL];
+
+const TorchURL = require("../assets/images/obstacle/torch.png");
+const Fireplace1URL = require("../assets/images/obstacle/fireplace1.png");
+const Fireplace2URL = require("../assets/images/obstacle/fireplace2.png");
 
 
 
@@ -71,7 +81,14 @@ class Game {
         this.createBackground();
         this.createPlayer();
         this.setButtonListeners();
-        // this.gameCanvas.focus();
+
+
+        // obstacles
+        this.obstacles = [];
+        this.obstacleInterval = 0;
+        this.obstaclesLimit = 30;
+        this.spawnRate = 300;
+        this.nextSpawn = this.spawnRate + Util.getRandomIntInclusive(0, 25);
     }
 
     jump(event) {
@@ -191,12 +208,47 @@ class Game {
         this.background10Image.src = Background10URL;
     }
 
+    generateRandomObstacle() {
+        let obstacle = null;
+        const obstacleTypes = ["torch", "fireplace1", "fireplace2"];
+        const obstacleType = obstacleTypes[Math.floor(Math.random()*obstacleTypes.length)];
+        
+
+        switch (obstacleType) {
+            case "torch":
+                obstacle = new Torch({ position: [928, 669], speed: 0.8, spriteSheetSrc: TorchURL });
+                break;
+            case "fireplace1":
+                obstacle = new Fireplace({ position: [928, 669], speed: 0.8, spriteSheetSrc: Fireplace1URL });
+                break;
+            case "fireplace2":
+                obstacle = new Fireplace({ position: [928, 669], speed: 0.8, spriteSheetSrc: Fireplace2URL });
+                break;
+            default:
+                obstacle = new Torch({ position: [928, 669], speed: 0.8, spriteSheet: TorchURL });
+        }
+
+        return obstacle;
+    }
+
+    createObstacles() {
+        if (this.obstacleInterval === 0 && this.obstacles.length < this.obstaclesLimit) {
+            this.obstacles.push(this.generateRandomObstacle());
+            console.log(this.obstacles, "new obstacles");
+            this.obstacleInterval += 1;
+        } else if (this.obstacleInterval === this.nextSpawn) {
+            console.log("NEW ROUND");
+            this.obstacleInterval = 0;
+            this.nextSpawn = this.spawnRate + Util.getRandomIntInclusive(0, 25);
+        } else {
+            this.obstacleInterval += 1;
+        }
+    }
+
     draw() {
-        this.player.update(this.gameContext)
-        // setTimeout(() => requestAnimationFrame(this.draw), 210);
         requestAnimationFrame(this.draw)
 
-
+        // backgrounds
         this.background1.draw();
         this.background2.draw();
         this.background3.draw();
@@ -207,6 +259,26 @@ class Game {
         this.background8.draw();
         this.background9.draw();
         this.background10.draw();
+
+        // player
+        this.player.update(this.gameContext)
+
+        // obstacles 
+        this.createObstacles();
+        let obstacleToDeleteIdx = null
+        this.obstacles.forEach((obstacle, idx) => {
+            obstacle.step(this.gameContext);
+            if (obstacle.outOfBounds()) {
+                obstacleToDeleteIdx = idx;
+            }
+            if (this.player.collidedWith(obstacle)) {
+                this.player.hurt = true;
+            }
+        });
+        // delete obstacle
+        if (obstacleToDeleteIdx) {
+            this.obstacles = this.obstacles.slice(obstacleToDeleteIdx, -1);
+        }
     }
 }
 

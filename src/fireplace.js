@@ -21,12 +21,8 @@ class Fireplace extends Obstacle {
         options.hitboxOffset = FIREPLACE_HITBOX_OFFSET;
         super(options);
 
-        // random fireplace out of 2
-        const sources = ["./assets/images/obstacle/fireplace1.png", "./assets/images/obstacle/fireplace2.png"];
-        const source = sources[Math.floor(Math.random()*sources.length)];
         this.spriteSheet = new Image();
-        this.spriteSheet.src = source;
-
+        this.spriteSheet.src = options.spriteSheetSrc;
         this.idleCount = 0;
     }
 
@@ -56,7 +52,7 @@ class Fireplace extends Obstacle {
         }
     }
 
-    draw() {
+    draw(ctx) {
         const sprite = this.getSprite();
         ctx.drawImage(
             this.spriteSheet,
