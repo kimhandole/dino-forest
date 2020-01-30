@@ -6,10 +6,10 @@ body {
     background-color: #004048;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     height: 100%;
     overflow-y: hidden;
-    background: url(../images/background/dinosaur.png);
+    background: url(../images/background/dino.png);
 }
 
 .canvases {

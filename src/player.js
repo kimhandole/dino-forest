@@ -33,7 +33,6 @@ class Player {
         this.walkCycle = 1;
         this.walkspeed = options.walkspeed ? options.walkspeed : 1;
 
-        this.idleSwitch = true;
         this.idleCount = 0;
     }
 
