@@ -110,7 +110,7 @@ class Game {
     }
 
     setBackground2() {
-        this.background2 = new Background(this.background2Context, this.background2Image, 0, 928, 0.2);
+        this.background2 = new Background(this.background2Context, this.background2Image, 0, 928, 0.3);
         this.background2.draw();
     }
     // light
@@ -120,22 +120,22 @@ class Game {
     }
 
     setBackground4() {
-        this.background4 = new Background(this.background4Context, this.background4Image, 0, 928, 0.4);
+        this.background4 = new Background(this.background4Context, this.background4Image, 0, 928, 0.6);
         this.background4.draw();
     }
 
     setBackground5() {
-        this.background5 = new Background(this.background5Context, this.background5Image, 0, 928, 0.65);
+        this.background5 = new Background(this.background5Context, this.background5Image, 0, 928, 0.98);
         this.background5.draw();
     }
     // light
     setBackground6() {
-        this.background6 = new Background(this.background6Context, this.background6Image, 0, 928, 1.1);
+        this.background6 = new Background(this.background6Context, this.background6Image, 0, 928, 1.6);
         this.background6.draw();
     }
     // tree bottom
     setBackground7() {
-        this.background7 = new Background(this.background7Context, this.background7Image, 0, 928, 1.0);
+        this.background7 = new Background(this.background7Context, this.background7Image, 0, 928, 1.5);
         this.background7.draw();
     }
     // tree top
@@ -150,7 +150,7 @@ class Game {
     }
     // outter ground
     setBackground10() {
-        this.background10 = new Background(this.background10Context, this.background10Image, 0, 928, 1.9);
+        this.background10 = new Background(this.background10Context, this.background10Image, 0, 928, 2.0);
         this.background10.draw();
     }
 
