@@ -96,7 +96,11 @@ class Game {
         // space bar
         if (event.keyCode === 32) {
             event.preventDefault();
-            this.player.toggleJump();
+            if (!this.isGamePlaying) {
+                this.start();
+            } else {
+                this.player.toggleJump();
+            }
         }
     }
 
@@ -107,52 +111,52 @@ class Game {
 
     // backgrounds
     setBackground1() {
-        this.background1 = new Background(this.background1Context, this.background1Image, 0, 928, 0.2);
+        this.background1 = new Background(this.background1Context, this.background1Image, 0, 928, 0);
         this.background1.draw();
     }
 
     setBackground2() {
-        this.background2 = new Background(this.background2Context, this.background2Image, 0, 928, 0.4);
+        this.background2 = new Background(this.background2Context, this.background2Image, 0, 928, 0);
         this.background2.draw();
     }
     // light
     setBackground3() {
-        this.background3 = new Background(this.background2Context, this.background2Image, 0, 928, 0.5);
+        this.background3 = new Background(this.background2Context, this.background2Image, 0, 928, 0);
         this.background3.draw();
     }
 
     setBackground4() {
-        this.background4 = new Background(this.background4Context, this.background4Image, 0, 928, 0.6);
+        this.background4 = new Background(this.background4Context, this.background4Image, 0, 928, 0);
         this.background4.draw();
     }
 
     setBackground5() {
-        this.background5 = new Background(this.background5Context, this.background5Image, 0, 928, 0.96);
+        this.background5 = new Background(this.background5Context, this.background5Image, 0, 928, 0);
         this.background5.draw();
     }
     // light
     setBackground6() {
-        this.background6 = new Background(this.background6Context, this.background6Image, 0, 928, 1.4);
+        this.background6 = new Background(this.background6Context, this.background6Image, 0, 928, 0);
         this.background6.draw();
     }
     // tree bottom
     setBackground7() {
-        this.background7 = new Background(this.background7Context, this.background7Image, 0, 928, 1.45);
+        this.background7 = new Background(this.background7Context, this.background7Image, 0, 928, 0);
         this.background7.draw();
     }
     // tree top
     setBackground8() {
-        this.background8 = new Background(this.background8Context, this.background8Image, 0, 928, 1.8);
+        this.background8 = new Background(this.background8Context, this.background8Image, 0, 928, 0);
         this.background8.draw();
     }
     // ground
     setBackground9() {
-        this.background9 = new Background(this.background9Context, this.background9Image, 0, 928, 1.8);
+        this.background9 = new Background(this.background9Context, this.background9Image, 0, 928, 0);
         this.background9.draw();
     }
     // outter ground
     setBackground10() {
-        this.background10 = new Background(this.background10Context, this.background10Image, 0, 928, 2.0);
+        this.background10 = new Background(this.background10Context, this.background10Image, 0, 928, 0);
         this.background10.draw();
     }
 
@@ -217,16 +221,16 @@ class Game {
 
         switch (obstacleType) {
             case "torch":
-                obstacle = new Torch({ position: [928, 669], speed: 1.8, spriteSheetSrc: TorchURL });
+                obstacle = new Torch({ position: [928, 669], speed: 1.9, spriteSheetSrc: TorchURL });
                 break;
             case "fireplace1":
-                obstacle = new Fireplace({ position: [928, 669], speed: 1.8, spriteSheetSrc: Fireplace1URL });
+                obstacle = new Fireplace({ position: [928, 669], speed: 1.9, spriteSheetSrc: Fireplace1URL });
                 break;
             case "fireplace2":
-                obstacle = new Fireplace({ position: [928, 669], speed: 1.8, spriteSheetSrc: Fireplace2URL });
+                obstacle = new Fireplace({ position: [928, 669], speed: 1.9, spriteSheetSrc: Fireplace2URL });
                 break;
             default:
-                obstacle = new Torch({ position: [928, 669], speed: 1.8, spriteSheet: TorchURL });
+                obstacle = new Torch({ position: [928, 669], speed: 1.9, spriteSheet: TorchURL });
         }
 
         return obstacle;
@@ -245,7 +249,7 @@ class Game {
     }
 
     start() {
-        // this.isGamePlaying = true;
+        this.isGamePlaying = true;
         // this.isGameOver = false;
         // this.isGamePaused = false;
         this.background1.speed = 0.2;
@@ -255,10 +259,9 @@ class Game {
         this.background5.speed = 0.96;
         this.background6.speed = 1.4;
         this.background7.speed = 1.45;
-        this.background8.speed = 1.8;
-        this.background9.speed = 1.8;
-        this.background10.speed = 2.0;
-        this.obstacles.map(obstacle => obstacle.speed = 1.8);
+        this.background8.speed = 1.9;
+        this.background9.speed = 1.9;
+        this.background10.speed = 2.1;
         this.player.walkCycle = 1;
     }
 
@@ -286,6 +289,7 @@ class Game {
     }
 
     draw() {
+        // repeat
         requestAnimationFrame(this.draw)
 
         // backgrounds
@@ -303,23 +307,25 @@ class Game {
         // player
         this.player.update(this.gameContext)
 
-        // obstacles 
-        this.createObstacles();
-        let obstacleToDeleteIdx = null;
+        // obstacles
+        if (this.isGamePlaying) {
+            this.createObstacles();
+            let obstacleToDeleteIdx = null;
 
-        this.obstacles.forEach((obstacle, idx) => {
-            obstacle.step(this.gameContext);
-            if (obstacle.outOfBounds()) {
-                obstacleToDeleteIdx = idx;
-            }
-            if (!this.player.hurt && this.player.collidedWith(obstacle)) {
-                this.player.hurt = true;
-            }
-        });
+            this.obstacles.forEach((obstacle, idx) => {
+                obstacle.step(this.gameContext);
+                if (obstacle.outOfBounds()) {
+                    obstacleToDeleteIdx = idx;
+                }
+                if (!this.player.hurt && this.player.collidedWith(obstacle)) {
+                    this.player.hurt = true;
+                }
+            });
 
-        // delete obstacle
-        if (obstacleToDeleteIdx) {
-            this.obstacles = this.obstacles.slice(obstacleToDeleteIdx + 1);
+            // delete obstacle
+            if (obstacleToDeleteIdx) {
+                this.obstacles = this.obstacles.slice(obstacleToDeleteIdx + 1);
+            }
         }
     }
 }

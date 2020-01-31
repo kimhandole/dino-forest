@@ -39,7 +39,7 @@ class Player {
         this.jumpCount = 0;
         
         // walk
-        this.walkCycle = 1;
+        this.walkCycle = 0;
 
         // idle 
         this.idleCount = 0;

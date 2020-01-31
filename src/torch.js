@@ -10,10 +10,10 @@ const TORCH_SPRITES = {
 };
 
 const TORCH_HITBOX_OFFSET = {
-    posX: 32,
-    posY: 32,
-    sizeX: 64,
-    sizeY: 64,
+    posX: 20,
+    posY: 20,
+    sizeX: 24,
+    sizeY: 44,
 };
 
 class Torch extends Obstacle {

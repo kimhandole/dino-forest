@@ -10,10 +10,10 @@ const FIREPLACE_SPRITES = {
 };
 
 const FIREPLACE_HITBOX_OFFSET = {
-    posX: 32,
-    posY: 32,
-    sizeX: 64,
-    sizeY: 64,
+    posX: 15,
+    posY: 34,
+    sizeX: 34,
+    sizeY: 30,
 };
 
 class Fireplace extends Obstacle {
