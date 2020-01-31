@@ -148,7 +148,7 @@ class Game {
         this.background9 = new Background(this.background9Context, this.background9Image, 0, 928, 0.8);
         this.background9.draw();
     }
-
+    // outter ground
     setBackground10() {
         this.background10 = new Background(this.background10Context, this.background10Image, 0, 928, 0.9);
         this.background10.draw();
@@ -212,7 +212,6 @@ class Game {
         let obstacle = null;
         const obstacleTypes = ["torch", "fireplace1", "fireplace2"];
         const obstacleType = obstacleTypes[Math.floor(Math.random()*obstacleTypes.length)];
-        
 
         switch (obstacleType) {
             case "torch":
@@ -234,7 +233,6 @@ class Game {
     createObstacles() {
         if (this.obstacleInterval === 0 && this.obstacles.length < this.obstaclesLimit) {
             this.obstacles.push(this.generateRandomObstacle());
-            console.log(this.obstacles, "new obstacles");
             this.obstacleInterval += 1;
         } else if (this.obstacleInterval === this.nextSpawn) {
             console.log("NEW ROUND");
@@ -265,16 +263,18 @@ class Game {
 
         // obstacles 
         this.createObstacles();
-        let obstacleToDeleteIdx = null
+        let obstacleToDeleteIdx = null;
+
         this.obstacles.forEach((obstacle, idx) => {
             obstacle.step(this.gameContext);
             if (obstacle.outOfBounds()) {
                 obstacleToDeleteIdx = idx;
             }
-            if (this.player.collidedWith(obstacle)) {
+            if (!this.player.hurt && this.player.collidedWith(obstacle)) {
                 this.player.hurt = true;
             }
         });
+
         // delete obstacle
         if (obstacleToDeleteIdx) {
             this.obstacles = this.obstacles.slice(obstacleToDeleteIdx, -1);

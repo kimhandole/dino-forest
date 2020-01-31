@@ -54,15 +54,15 @@ class Player {
         // console.log(this.position, "POSITION")
         // hurt 
         if (this.hurt) {
-            if (this.hurtCount < 5) {
+            if (this.hurtCount < 7) {
                 this.hurtCount += 1;
                 return SPRITES.hurt1;
-            } else if (this.hurtCount < 10) {
+            } else if (this.hurtCount < 13) {
                 this.hurtCount += 1;
                 return SPRITES.hurt2;
             } else {
                 this.hurtCount += 1;
-                if (this.hurtCount === 15) {
+                if (this.hurtCount === 19) {
                     this.hurtCount = 0;
                     this.hurt = false;
                 }
@@ -86,7 +86,7 @@ class Player {
             }
         } 
         // jump
-        else if (this.jumping) {
+        else if (!this.hurt && this.jumping) {
             if (this.jumpingAnimation === 0) {
                 if (this.position[1] === 582) {
                     this.jumpingAnimation = 1;

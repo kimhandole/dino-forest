@@ -28,24 +28,24 @@ class Fireplace extends Obstacle {
 
     getSprite() {
         // idle
-        if (this.idleCount < 10) {
+        if (this.idleCount < 3) {
             this.idleCount += 1;
             return FIREPLACE_SPRITES.idle1;
-        } else if (this.idleCount < 20) {
+        } else if (this.idleCount < 6) {
             this.idleCount += 1;
             return FIREPLACE_SPRITES.idle2;
-        } else if (this.idleCount < 30) {
+        } else if (this.idleCount < 9) {
             this.idleCount += 1;
             return FIREPLACE_SPRITES.idle3;
-        } else if (this.idleCount < 40) {
+        } else if (this.idleCount < 12) {
             this.idleCount += 1;
             return FIREPLACE_SPRITES.idle4;
-        } else if (this.idleCount < 50) {
+        } else if (this.idleCount < 15) {
             this.idleCount += 1;
             return FIREPLACE_SPRITES.idle5;
         } else {
             this.idleCount += 1;
-            if (this.idleCount === 60) {
+            if (this.idleCount === 18) {
                 this.idleCount = 0;
             }
             return FIREPLACE_SPRITES.idle6;
