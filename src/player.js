@@ -40,9 +40,8 @@ class Player {
         
         // walk
         this.walkCycle = 1;
-        this.walkspeed = options.walkspeed ? options.walkspeed : 1;
 
-        // idle
+        // idle 
         this.idleCount = 0;
 
         // hurt 

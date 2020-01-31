@@ -82,16 +82,18 @@ class Game {
         this.createPlayer();
         this.setButtonListeners();
 
-
         // obstacles
         this.obstacles = [];
         this.obstacleInterval = 0;
         this.obstaclesLimit = 30;
         this.spawnRate = 300;
         this.nextSpawn = this.spawnRate + Util.getRandomIntInclusive(0, 25);
+    
+        this.isGamePlaying = false;
     }
 
     jump(event) {
+        // space bar
         if (event.keyCode === 32) {
             event.preventDefault();
             this.player.toggleJump();
@@ -115,7 +117,7 @@ class Game {
     }
     // light
     setBackground3() {
-        this.background3 = new Background(this.background2Context, this.background2Image, 0, 928, 0.41);
+        this.background3 = new Background(this.background2Context, this.background2Image, 0, 928, 0.5);
         this.background3.draw();
     }
 
@@ -240,6 +242,47 @@ class Game {
         } else {
             this.obstacleInterval += 1;
         } 
+    }
+
+    start() {
+        // this.isGamePlaying = true;
+        // this.isGameOver = false;
+        // this.isGamePaused = false;
+        this.background1.speed = 0.2;
+        this.background2.speed = 0.4;
+        this.background3.speed = 0.5;
+        this.background4.speed = 0.6;
+        this.background5.speed = 0.96;
+        this.background6.speed = 1.4;
+        this.background7.speed = 1.45;
+        this.background8.speed = 1.8;
+        this.background9.speed = 1.8;
+        this.background10.speed = 2.0;
+        this.obstacles.map(obstacle => obstacle.speed = 1.8);
+        this.player.walkCycle = 1;
+    }
+
+    pause() {
+
+    }
+
+    stop() {
+        this.background1.speed = 0;
+        this.background2.speed = 0;
+        this.background3.speed = 0;
+        this.background4.speed = 0;
+        this.background5.speed = 0;
+        this.background6.speed = 0;
+        this.background7.speed = 0;
+        this.background8.speed = 0;
+        this.background9.speed = 0;
+        this.background10.speed = 0;
+        this.obstacles.map(obstacle => obstacle.speed = 0);
+        this.player.walkCycle = 0;
+    }
+
+    reset() {
+
     }
 
     draw() {

@@ -19,10 +19,6 @@ class Background {
         this.ctx.drawImage(this.image, this.x, this.y);
         this.ctx.drawImage(this.image, this.x + this.imageLength, this.y);
 
-        if (this.imageLength < 928) {
-            this.ctx.drawImage(this.image, this.x + this.imageLength * 2, this.y);
-        }
-
         if (this.x <= -this.imageLength) {
             this.x = 0;
         }
