@@ -21,10 +21,10 @@ const SPRITES = {
 };
 
 const PLAYER_HITBOX_OFFSET = {
-    posX: 3,
-    posY: 9,
-    sizeX: 27,
-    sizeY: 50,
+    posX: 4,
+    posY: 4,
+    sizeX: 16,
+    sizeY: 16,
 };
 
 class Player {
