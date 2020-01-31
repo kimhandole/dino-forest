@@ -235,12 +235,11 @@ class Game {
             this.obstacles.push(this.generateRandomObstacle());
             this.obstacleInterval += 1;
         } else if (this.obstacleInterval === this.nextSpawn) {
-            console.log("NEW ROUND");
             this.obstacleInterval = 0;
             this.nextSpawn = this.spawnRate + Util.getRandomIntInclusive(0, 25);
         } else {
             this.obstacleInterval += 1;
-        }
+        } 
     }
 
     draw() {
@@ -277,7 +276,11 @@ class Game {
 
         // delete obstacle
         if (obstacleToDeleteIdx) {
-            this.obstacles = this.obstacles.slice(obstacleToDeleteIdx, -1);
+            console.log(this.obstacles, "BE")
+            // const numOfObstaclesToKeep = this.obstacles.length - obstacleToDeleteIdx;
+            this.obstacles = this.obstacles.slice(obstacleToDeleteIdx + 1);
+            console.log(this.obstacles, "AF")
+
         }
     }
 }

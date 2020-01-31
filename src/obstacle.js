@@ -10,7 +10,7 @@ class Obstacle {
     }
 
     outOfBounds() {
-        return this.position[0] < -64;
+        return this.position[0] <= -64;
     }
 
     step(ctx) {
