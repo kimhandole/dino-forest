@@ -254,9 +254,9 @@ class Game {
         // this.isGamePaused = false;
         this.background1.speed = 0.2;
         this.background2.speed = 0.4;
-        this.background3.speed = 0.5;
-        this.background4.speed = 0.7;
-        this.background5.speed = 1.06;
+        this.background3.speed = 0.6;
+        this.background4.speed = 0.8;
+        this.background5.speed = 1.1;
         // light
         this.background6.speed = 1.5;
         // bottom tree
@@ -266,7 +266,7 @@ class Game {
         // ground
         this.background9.speed = 1.9;
         // outter ground
-        this.background10.speed = 2.1;
+        this.background10.speed = 2.0;
         this.player.walkCycle = 1;
     }
 
