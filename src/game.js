@@ -105,12 +105,12 @@ class Game {
 
     // backgrounds
     setBackground1() {
-        this.background1 = new Background(this.background1Context, this.background1Image, 0, 928, 0.1);
+        this.background1 = new Background(this.background1Context, this.background1Image, 0, 928, 0.2);
         this.background1.draw();
     }
 
     setBackground2() {
-        this.background2 = new Background(this.background2Context, this.background2Image, 0, 928, 0.3);
+        this.background2 = new Background(this.background2Context, this.background2Image, 0, 928, 0.4);
         this.background2.draw();
     }
     // light
@@ -125,17 +125,17 @@ class Game {
     }
 
     setBackground5() {
-        this.background5 = new Background(this.background5Context, this.background5Image, 0, 928, 0.98);
+        this.background5 = new Background(this.background5Context, this.background5Image, 0, 928, 0.96);
         this.background5.draw();
     }
     // light
     setBackground6() {
-        this.background6 = new Background(this.background6Context, this.background6Image, 0, 928, 1.6);
+        this.background6 = new Background(this.background6Context, this.background6Image, 0, 928, 1.4);
         this.background6.draw();
     }
     // tree bottom
     setBackground7() {
-        this.background7 = new Background(this.background7Context, this.background7Image, 0, 928, 1.5);
+        this.background7 = new Background(this.background7Context, this.background7Image, 0, 928, 1.45);
         this.background7.draw();
     }
     // tree top
