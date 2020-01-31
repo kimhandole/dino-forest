@@ -10,9 +10,9 @@ const FIREPLACE_SPRITES = {
 };
 
 const FIREPLACE_HITBOX_OFFSET = {
-    posX: 15,
+    posX: 16,
     posY: 34,
-    sizeX: 34,
+    sizeX: 32,
     sizeY: 30,
 };
 

@@ -255,12 +255,17 @@ class Game {
         this.background1.speed = 0.2;
         this.background2.speed = 0.4;
         this.background3.speed = 0.5;
-        this.background4.speed = 0.6;
-        this.background5.speed = 0.96;
-        this.background6.speed = 1.4;
-        this.background7.speed = 1.45;
+        this.background4.speed = 0.7;
+        this.background5.speed = 1.06;
+        // light
+        this.background6.speed = 1.5;
+        // bottom tree
+        this.background7.speed = 1.55;
+        // top tree
         this.background8.speed = 1.9;
+        // ground
         this.background9.speed = 1.9;
+        // outter ground
         this.background10.speed = 2.1;
         this.player.walkCycle = 1;
     }
@@ -282,6 +287,8 @@ class Game {
         this.background10.speed = 0;
         this.obstacles.map(obstacle => obstacle.speed = 0);
         this.player.walkCycle = 0;
+        this.isGamePlaying = false;
+        this.obstacles = [];
     }
 
     reset() {
@@ -319,6 +326,7 @@ class Game {
                 }
                 if (!this.player.hurt && this.player.collidedWith(obstacle)) {
                     this.player.hurt = true;
+                    this.stop();
                 }
             });
 
