@@ -1,6 +1,6 @@
 class Display {
     constructor() {
-        this.titleText = "dino FOREST";
+        this.titleText = "DINO FOREST";
         this.startInfoText = "Press ENTER to START";
 
         this.gameOverText = "GAME OVER";
@@ -29,8 +29,8 @@ class Display {
             ctx.lineWidth = 4;
             ctx.fillStyle = 'white';
             ctx.textAlign = 'center';
-            ctx.strokeText(this.gameOverText, 486, 500);
-            ctx.fillText(this.gameOverText, 486, 500);
+            ctx.strokeText(this.gameOverText, 486, 520);
+            ctx.fillText(this.gameOverText, 486, 520);
             ctx.strokeText(this.restartInfoText, 486, 600);
             ctx.fillText(this.restartInfoText, 486, 600);
         }

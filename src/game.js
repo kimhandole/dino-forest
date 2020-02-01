@@ -77,7 +77,7 @@ class Game {
         this.setPlayer = this.setPlayer.bind(this);
 
         // functions
-        this.jump = this.jump.bind(this);
+        this.handleKeyboard = this.handleKeyboard.bind(this);
         this.draw = this.draw.bind(this);
 
         // function calls
@@ -98,21 +98,27 @@ class Game {
         this.display = new Display();
     }
 
-    jump(event) {
-        // space bar
-        if (event.keyCode === 32) {
+    handleKeyboard(event) {
+        // enter
+        if (event.keyCode === 13) {
             event.preventDefault();
             if (!this.isGamePlaying) {
                 this.start();
-            } else {
-                this.player.toggleJump();
             }
+        }
+
+        // space bar
+        if (event.keyCode === 32) {
+            event.preventDefault();
+            if (this.isGamePlaying) {
+                this.player.toggleJump();
+            } 
         }
     }
 
     // button listeners
     setButtonListeners() {
-        document.addEventListener('keydown', this.jump);
+        document.addEventListener('keydown', this.handleKeyboard);
     }
 
     // backgrounds
