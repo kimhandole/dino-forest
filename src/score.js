@@ -3,10 +3,12 @@ class Score {
         this.score = 0;
         this.scores = [];
         this.isGamePlaying = false;
+        this.displayScore = false;
     }
 
     start() {
         this.isGamePlaying = true;
+        this.displayScore = true;
     }
 
     highScore() {
@@ -25,28 +27,30 @@ class Score {
     }
 
     draw(ctx) {
-        let scoreText = ``;
+        if (this.displayScore) {
+            let scoreText = ``;
 
-        // no high score
-        if (this.scores.length === 0) {
-            scoreText = `${this.score}`;
-        } 
-        // high score exist
-        else {
-            scoreText = `HI ${this.highScore()} ${this.score}`;
-        }
+            // no high score
+            if (this.scores.length === 0) {
+                scoreText = `${this.score}`;
+            }
+            // high score exist
+            else {
+                scoreText = `HI  ${this.highScore()}  ${this.score}`;
+            }
 
-        ctx.font = '20px Arial';
-        ctx.strokeStyle = 'black';
-        ctx.lineWidth = 4;
-        ctx.fillStyle = 'white';
-        ctx.textAlign = 'right';
-        ctx.strokeText(scoreText, 888, 400);
-        ctx.fillText(scoreText, 888, 400);
+            ctx.font = '20px Arial';
+            ctx.strokeStyle = 'black';
+            ctx.lineWidth = 4;
+            ctx.fillStyle = 'white';
+            ctx.textAlign = 'right';
+            ctx.strokeText(scoreText, 888, 400);
+            ctx.fillText(scoreText, 888, 400);
 
-        // playing
-        if (this.isGamePlaying) {
-            this.increaseScore();
+            // playing
+            if (this.isGamePlaying) {
+                this.increaseScore();
+            }
         }
     }
 }
