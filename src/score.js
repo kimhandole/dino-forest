@@ -39,7 +39,7 @@ class Score {
                 scoreText = `HI  ${this.highScore()}  ${this.score}`;
             }
 
-            ctx.font = '20px Arial';
+            ctx.font = '20px Marker Felt';
             ctx.strokeStyle = 'black';
             ctx.lineWidth = 4;
             ctx.fillStyle = 'white';

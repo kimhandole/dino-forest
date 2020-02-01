@@ -2,8 +2,10 @@ import Background from './background';
 import Player from './player';
 import Fireplace from './fireplace';
 import Torch from './torch';
-import Util from './util';
 import Score from './score';
+import Display from './display';
+import Util from './util';
+
 
 
 // load image files
@@ -88,11 +90,12 @@ class Game {
         this.obstacleInterval = 0;
         this.obstaclesLimit = 30;
         this.spawnRate = 300;
-        this.nextSpawn = this.spawnRate + Util.getRandomIntInclusive(0, 25);
+        this.nextSpawn = this.spawnRate + Util.getRandomIntInclusive(0, 50);
     
         // initialize
         this.isGamePlaying = false;
         this.score = new Score();
+        this.display = new Display();
     }
 
     jump(event) {
@@ -251,12 +254,9 @@ class Game {
         } 
     }
 
-    displayStartText() {
-
-    }
-
     start() {
         this.isGamePlaying = true;
+        this.display.isGameOver = false
 
         this.background1.speed = 0.2;
         this.background2.speed = 0.4;
@@ -279,10 +279,6 @@ class Game {
         this.score.start();
     }
 
-    pause() {
-
-    }
-
     stop() {
         this.background1.speed = 0;
         this.background2.speed = 0;
@@ -298,10 +294,6 @@ class Game {
         this.player.walkCycle = 0;
         this.isGamePlaying = false;
         this.obstacles = [];
-    }
-
-    reset() {
-
     }
 
     draw() {
@@ -339,6 +331,7 @@ class Game {
                     this.player.hurt = true;
                     this.stop();
                     this.score.resetScore();
+                    this.display.isGameOver = true;
                 }
             });
 
@@ -346,6 +339,8 @@ class Game {
             if (obstacleToDeleteIdx) {
                 this.obstacles = this.obstacles.slice(obstacleToDeleteIdx + 1);
             }
+        } else {
+            this.display.draw(this.gameContext);
         }
 
         // score
