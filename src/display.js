@@ -2,11 +2,21 @@ class Display {
     constructor() {
         this.titleText = "DINO FOREST";
         this.startInfoText = "Press ENTER to START";
-
         this.gameOverText = "GAME OVER";
         this.restartInfoText = "Press ENTER to RETRY";
+        this.gameInfoText = "Press SPACE BAR to JUMP";
 
         this.isGameOver = false;
+    }
+
+    info(ctx) {
+        ctx.font = '20px Arial';
+        ctx.strokeStyle = 'black';
+        ctx.lineWidth = 4;
+        ctx.fillStyle = 'white';
+        ctx.textAlign = 'center';
+        ctx.strokeText(this.gameInfoText, 495, 680);
+        ctx.fillText(this.gameInfoText, 495, 680);
     }
 
     draw(ctx) {
@@ -17,10 +27,10 @@ class Display {
             ctx.lineWidth = 4;
             ctx.fillStyle = 'white';
             ctx.textAlign = 'center';
-            ctx.strokeText(this.titleText, 486, 440);
-            ctx.fillText(this.titleText, 486, 440);
-            ctx.strokeText(this.startInfoText, 486, 600);
-            ctx.fillText(this.startInfoText, 486, 600);
+            ctx.strokeText(this.titleText, 495, 530);
+            ctx.fillText(this.titleText, 495, 530);
+            ctx.strokeText(this.startInfoText, 495, 680);
+            ctx.fillText(this.startInfoText, 495, 680);
         }
         // game over
         else {
@@ -29,10 +39,10 @@ class Display {
             ctx.lineWidth = 4;
             ctx.fillStyle = 'white';
             ctx.textAlign = 'center';
-            ctx.strokeText(this.gameOverText, 486, 520);
-            ctx.fillText(this.gameOverText, 486, 520);
-            ctx.strokeText(this.restartInfoText, 486, 600);
-            ctx.fillText(this.restartInfoText, 486, 600);
+            ctx.strokeText(this.gameOverText, 495, 530);
+            ctx.fillText(this.gameOverText, 495, 530);
+            ctx.strokeText(this.restartInfoText, 495, 680);
+            ctx.fillText(this.restartInfoText, 495, 680);
         }
     }
 }

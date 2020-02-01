@@ -94,10 +94,12 @@ class Game {
     
         // initialize
         this.isGamePlaying = false;
+        this.didUserJump = false;
         this.score = new Score();
         this.display = new Display();
     }
 
+    // keyboard
     handleKeyboard(event) {
         // enter
         if (event.keyCode === 13) {
@@ -112,7 +114,11 @@ class Game {
             event.preventDefault();
             if (this.isGamePlaying) {
                 this.player.toggleJump();
-            } 
+            }
+            // turn off game info
+            if (!this.didUserJump) {
+                this.didUserJump = true;
+            }
         }
     }
 
@@ -322,6 +328,11 @@ class Game {
         this.player.update(this.gameContext)
 
         if (this.isGamePlaying) {
+            // game info
+            if (!this.didUserJump) {
+                this.display.info(this.gameContext);
+            }
+
             // create obstacles
             this.createObstacles();
             let obstacleToDeleteIdx = null;

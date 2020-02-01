@@ -3,15 +3,13 @@ html {
 }
 
 body {
-    background-color: #004048;
+    background-color: #0c1122;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     height: 100%;
     overflow-y: hidden;
-    background: url(../images/background/dino.png);
-    background-origin: content-box;
-    padding: 15px;
+    /* background: url(../images/background/dino.png); */
 }
 
 .canvases {
@@ -19,4 +17,5 @@ body {
     height: 793px;
     background: transparent;
     border-radius: 2px;
+    background: url(../images/background/background-layer0.png);
 }
