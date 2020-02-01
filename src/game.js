@@ -284,7 +284,7 @@ class Game {
         // ground
         this.background9.speed = 1.9;
         // outter ground
-        this.background10.speed = 2.0;
+        this.background10.speed = 2.1;
 
         this.player.walkCycle = 1;
 
