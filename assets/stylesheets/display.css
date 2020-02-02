@@ -7,7 +7,6 @@
 
 .unmute-text {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    /* color: white; */
     font-size: 20px;
     position: absolute;
     margin-top: 16px;
@@ -26,24 +25,34 @@
 }
 
 #email {
-    margin-left: 694px;
+    margin-left: 695px;
     margin-top: 18px;
+    width: 30px;
+    height: 30px;
 }
 
 #github {
     margin-left: 744px;
+   width: 30px;
+    height: 30px;
 }
 
 #linkedin {
     margin-left: 794px;
     margin-top: 17px;
+    width: 30px;
+    height: 30px;
 }
 
 #angelist {
     margin-left: 836px;
+    width: 30px;
+    height: 30px;
 }
 
 #creater {
     margin-left: 878px;
     margin-top: 15px;
+    width: 34px;
+    height: 34px;
 }
