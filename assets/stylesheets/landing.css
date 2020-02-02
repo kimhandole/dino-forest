@@ -5,8 +5,9 @@
     height: 793px;
     z-index: 2;
     display: flex;
-    justify-content: center;
-    /* align-items: center; */
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
 }
 
 #egg {
@@ -21,4 +22,36 @@
     top: 520px;
     opacity: 100 !important;
     transition: 3s 3.6s;
+}
+
+.sound-text {
+    color: white;
+    font-family: "Amatic SC";
+    display: none;
+}
+
+#sound-question {
+    margin-top: 300px;
+    font-size: 30px;
+}
+
+#sound-answer {
+    width: 20%;
+    margin-top: 48px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#sound-yes {
+    font-size: 28px;
+    cursor: pointer;
+}
+
+#sound-no {
+    font-size: 28px;
+    cursor: pointer;
+}
+
+.sound-text-show {
+    display: block;
 }

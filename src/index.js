@@ -3,7 +3,6 @@ import Game from './game';
 const WIDTH = 928;
 const HEIGHT = 793;
 
-
 document.addEventListener('DOMContentLoaded', () => {
     // game 
     const gameCanvas = document.getElementById("game-canvas");
@@ -85,10 +84,53 @@ document.addEventListener('DOMContentLoaded', () => {
         background9Context,
         background10Context
     );
-
+    
+    // set clicks
+    document.getElementById("sound-yes").addEventListener("click", () => {
+        document.getElementById("mute").click();
+        document.getElementsByClassName("landing-container")[0].style.display = "none"
+    });
+    document.getElementById("sound-no").addEventListener("click",
+        () => document.getElementsByClassName("landing-container")[0].style.display = "none"
+    )
 
     // landing
-    setTimeout(() => document.getElementsByClassName("landing-container")[0].style.display = "none", 9000);
+    // setTimeout(() => document.getElementsByClassName("landing-container")[0].style.display = "none", 12000);
+    setTimeout(() => fadeOut(document.getElementById("egg")), 8000);
+    setTimeout(() => fadeOut(document.getElementById("author-text")), 8000);
+
+    // ask for sound
+    setTimeout(()=> document.getElementById("sound-question").classList.add("sound-text-show"), 8000);
+    setTimeout(()=> document.getElementById("sound-yes").classList.add("sound-text-show"), 8000);
+    setTimeout(()=> document.getElementById("sound-no").classList.add("sound-text-show"), 8000);
+
+    // set player keyboard after landing
+    // setTimeout(() => game.setKeyboardListeners(), 10000);
 
     game.draw()
 })
+
+const fadeOut = (el, smooth = true, displayStyle = 'none') => {
+    if (smooth) {
+        let opacity = el.style.opacity;
+        let request;
+
+        const animation = () => {
+            el.style.opacity = opacity -= 0.04;
+            if (opacity <= 0) {
+                opacity = 0;
+                el.style.display = displayStyle;
+                cancelAnimationFrame(request);
+            }
+        };
+
+        const rAf = () => {
+            request = requestAnimationFrame(rAf);
+            animation();
+        };
+        rAf();
+
+    } else {
+        el.style.opacity = 0;
+    }
+};

@@ -124,11 +124,12 @@ class Game {
         }
     }
 
+    setKeyboardListeners() {
+        document.addEventListener('keydown', this.handleKeyboard);
+    }
+
     // button listeners
     setButtonListeners() {
-        // keyboard
-        document.addEventListener('keydown', this.handleKeyboard);
-
         // mute
         document.getElementById("mute").addEventListener("click", () => {
 
