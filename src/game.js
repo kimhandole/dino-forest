@@ -140,7 +140,7 @@ class Game {
             }
 
             // unmute info text
-            document.getElementsByClassName("unmute-text")[0].classList.toggle("unmute-text-none");
+            document.getElementsByClassName("unmute-text")[0].classList.add("unmute-text-none");
 
             // intro
             if (!this.isGamePlaying && !this.isGameOver) {
