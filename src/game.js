@@ -254,17 +254,17 @@ class Game {
         this.introSound = new Audio("../assets/sounds/intro.mp3");
         this.introSound.loop = true;
         this.introSound.muted = true;
-        this.introSound.volume = 0.4;
+        this.introSound.volume = 0.2;
 
         this.backgroundSound = new Audio("../assets/sounds/background.mp3");
         this.backgroundSound.loop = true;
         this.backgroundSound.muted = true;
-        this.backgroundSound.volume = 0.7;
+        this.backgroundSound.volume = 0.5;
         
         this.gameOverSound = new Audio("../assets/sounds/gameover.mp3");
         this.gameOverSound.loop = true;
         this.gameOverSound.muted = true;
-        this.gameOverSound.volume = 0.7;
+        this.gameOverSound.volume = 0.5;
     }
 
     setPlayer() {
@@ -400,7 +400,7 @@ class Game {
         // light
         this.background6.speed = 1.5;
         // bottom tree
-        this.background7.speed = 1.7;
+        this.background7.speed = 1.6;
         // top tree
         this.background8.speed = 1.9;
         // ground
