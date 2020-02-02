@@ -80,23 +80,25 @@ class Game {
         this.handleKeyboard = this.handleKeyboard.bind(this);
         this.draw = this.draw.bind(this);
 
-        // function calls
-        this.createBackground();
-        this.createPlayer();
-        this.setButtonListeners();
-
         // obstacles
         this.obstacles = [];
         this.obstacleInterval = 0;
-        this.obstaclesLimit = 30;
-        this.spawnRate = 300;
-        this.nextSpawn = this.spawnRate + Util.getRandomIntInclusive(0, 50);
+        this.obstaclesLimit = 20;
+        this.spawnRate = 100;
+        this.nextSpawn = this.spawnRate + Util.getRandomIntInclusive(0, 150);
     
         // initialize
+        this.isMuted = true;
         this.isGamePlaying = false;
+        this.isGameOver = false;
         this.didUserJump = false;
         this.score = new Score();
         this.display = new Display();
+        // function calls
+        this.setSounds();
+        this.setButtonListeners();
+        this.createBackground();
+        this.createPlayer();
     }
 
     // keyboard
@@ -124,7 +126,77 @@ class Game {
 
     // button listeners
     setButtonListeners() {
+        // keyboard
         document.addEventListener('keydown', this.handleKeyboard);
+
+        // mute
+        document.getElementById("mute").addEventListener("click", () => {
+
+            // mute button image
+            if (this.isMuted) {
+                document.getElementById("mute").src = "../assets/images/display/speaker.png";
+            } else {
+                document.getElementById("mute").src = "../assets/images/display/mute.png";
+            }
+
+            // intro
+            if (!this.isGamePlaying && !this.isGameOver) {
+                if (this.isMuted) {
+                    this.isMuted = false;
+                    this.introSound.muted = false;
+                    this.backgroundSound.muted = false;
+                    this.gameOverSound.muted = false;
+                    this.player.jumpSound.muted = false;
+                    this.player.deadSound.muted = false;
+
+                    this.introSound.play();
+                } else {
+                    this.isMuted = true;
+                    this.introSound.muted = true;
+                    this.backgroundSound.muted = true;
+                    this.gameOverSound.muted = true;
+                    this.player.jumpSound.muted = true;
+                    this.player.deadSound.muted = true;
+                }
+            } 
+            // during game play
+            else if (this.isGamePlaying && !this.isGameOver) {
+                if (this.isMuted) {
+                    this.isMuted = false;
+                    this.backgroundSound.muted = false;
+                    this.gameOverSound.muted = false;
+                    this.player.jumpSound.muted = false;
+                    this.player.deadSound.muted = false;
+
+                    this.backgroundSound.play();
+                } else {
+                    this.isMuted = true
+                    this.backgroundSound.muted = true;
+                    this.gameOverSound.muted = true;
+                    this.player.jumpSound.muted = true;
+                    this.player.deadSound.muted = true;
+                }
+            }
+            // game over
+            else if (!this.isGamePlaying && this.isGameOver) {
+                if (this.isMuted) {
+                    this.isMuted = false;
+                    this.backgroundSound.muted = false;
+                    this.gameOverSound.muted = false;
+                    this.player.jumpSound.muted = false;
+                    this.player.deadSound.muted = false;
+
+                    this.gameOverSound.play();
+
+                } else {
+                    this.isMuted = true;
+                    this.backgroundSound.muted = true;
+                    this.gameOverSound.muted = true;
+                    this.player.jumpSound.muted = true;
+                    this.player.deadSound.muted = true;
+                }
+            }
+        });
     }
 
     // backgrounds
@@ -178,8 +250,27 @@ class Game {
         this.background10.draw();
     }
 
+    setSounds() {
+        this.introSound = new Audio("../assets/sounds/intro.mp3");
+        this.introSound.loop = true;
+        this.introSound.muted = true;
+        this.introSound.volume = 0.4;
+
+        this.backgroundSound = new Audio("../assets/sounds/background.mp3");
+        this.backgroundSound.loop = true;
+        this.backgroundSound.muted = true;
+        this.backgroundSound.volume = 0.7;
+        
+        this.gameOverSound = new Audio("../assets/sounds/gameover.mp3");
+        this.gameOverSound.loop = true;
+        this.gameOverSound.muted = true;
+        this.gameOverSound.volume = 0.7;
+    }
+
     setPlayer() {
         this.player = new Player({ position: [84, 712], spriteSheet: this.playerImage });
+
+        // start game
         this.draw();
     }
 
@@ -232,44 +323,75 @@ class Game {
         this.background10Image.src = Background10URL;
     }
 
-    generateRandomObstacle() {
+    generateRandomObstacle(speed) {
         let obstacle = null;
         const obstacleTypes = ["torch", "fireplace1", "fireplace2"];
         const obstacleType = obstacleTypes[Math.floor(Math.random()*obstacleTypes.length)];
 
         switch (obstacleType) {
             case "torch":
-                obstacle = new Torch({ position: [928, 669], speed: 1.9, spriteSheetSrc: TorchURL });
+                obstacle = new Torch({ position: [928, 669], speed: speed, spriteSheetSrc: TorchURL });
                 break;
             case "fireplace1":
-                obstacle = new Fireplace({ position: [928, 669], speed: 1.9, spriteSheetSrc: Fireplace1URL });
+                obstacle = new Fireplace({ position: [928, 669], speed: speed, spriteSheetSrc: Fireplace1URL });
                 break;
             case "fireplace2":
-                obstacle = new Fireplace({ position: [928, 669], speed: 1.9, spriteSheetSrc: Fireplace2URL });
+                obstacle = new Fireplace({ position: [928, 669], speed: speed, spriteSheetSrc: Fireplace2URL });
                 break;
             default:
-                obstacle = new Torch({ position: [928, 669], speed: 1.9, spriteSheet: TorchURL });
+                obstacle = new Torch({ position: [928, 669], speed: speed, spriteSheet: TorchURL });
         }
 
         return obstacle;
     }
 
-    createObstacles() {
+    createObstacles(speed) {
         if (this.obstacleInterval === 0 && this.obstacles.length < this.obstaclesLimit) {
-            this.obstacles.push(this.generateRandomObstacle());
+            this.obstacles.push(this.generateRandomObstacle(speed));
             this.obstacleInterval += 1;
         } else if (this.obstacleInterval === this.nextSpawn) {
             this.obstacleInterval = 0;
-            this.nextSpawn = this.spawnRate + Util.getRandomIntInclusive(0, 25);
+            this.nextSpawn = this.spawnRate + Util.getRandomIntInclusive(0, 150);
         } else {
             this.obstacleInterval += 1;
         } 
     }
 
+    increaseSpeed(offset) {
+        
+        this.background1.speed = this.background1.speed + offset;
+        this.background2.speed = this.background2.speed + offset;
+        this.background3.speed = this.background3.speed + offset;
+        this.background4.speed = this.background4.speed + offset;
+        this.background5.speed = this.background5.speed + offset;
+        // light
+        this.background6.speed = this.background6.speed + offset;
+        // bottom tree
+        this.background7.speed = this.background7.speed + offset;
+        // top tree
+        this.background8.speed = this.background8.speed + offset;
+        // ground
+        this.background9.speed = this.background9.speed + offset;
+        // outter ground
+        this.background10.speed = this.background10.speed + offset;
+
+        // obstacles
+        this.obstacles.map(obstacle => obstacle.speed = this.background9.speed);
+    }
+
     start() {
+        // sound
+        this.introSound.pause();
+        this.gameOverSound.pause();
+        this.backgroundSound.currentTime = 0;
+        this.backgroundSound.play();
+        
+        // logic
+        this.isGameOver = false;
         this.isGamePlaying = true;
         this.display.isGameOver = false
 
+        // canvas
         this.background1.speed = 0.2;
         this.background2.speed = 0.4;
         this.background3.speed = 0.6;
@@ -278,7 +400,7 @@ class Game {
         // light
         this.background6.speed = 1.5;
         // bottom tree
-        this.background7.speed = 1.55;
+        this.background7.speed = 1.7;
         // top tree
         this.background8.speed = 1.9;
         // ground
@@ -292,6 +414,12 @@ class Game {
     }
 
     stop() {
+        // sound
+        this.backgroundSound.pause();
+        this.gameOverSound.currentTime = 0;
+        this.gameOverSound.play();
+
+        // canvas
         this.background1.speed = 0;
         this.background2.speed = 0;
         this.background3.speed = 0;
@@ -334,7 +462,7 @@ class Game {
             }
 
             // create obstacles
-            this.createObstacles();
+            this.createObstacles(this.background9.speed);
             let obstacleToDeleteIdx = null;
 
             this.obstacles.forEach((obstacle, idx) => {
@@ -346,16 +474,21 @@ class Game {
                 // game over
                 if (!this.player.hurt && this.player.collidedWith(obstacle)) {
                     this.player.hurt = true;
+                    this.player.deadSound.play();
                     this.stop();
                     this.score.resetScore();
                     this.display.isGameOver = true;
+                    this.isGameOver = true;
                 }
             });
 
             // delete obstacle
             if (obstacleToDeleteIdx) {
                 this.obstacles = this.obstacles.slice(obstacleToDeleteIdx + 1);
+                const speedOffset = 0.2;
+                this.increaseSpeed(speedOffset);
             }
+
         } else {
             this.display.draw(this.gameContext);
         }

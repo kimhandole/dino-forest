@@ -32,6 +32,16 @@ class Player {
         this.position = options.position;
         this.spriteSheet = options.spriteSheet;
 
+        // jump sound
+        this.jumpSound = new Audio('../assets/sounds/jump.wav');
+        this.jumpSound.volume = 0.2;
+        this.jumpSound.muted = true;
+
+        // dead sound
+        this.deadSound = new Audio('../assets/sounds/dead.wav');
+        this.deadSound.volume = 0.1;
+        this.deadSound.muted = true;
+
         // jump
         this.jumping = false;
         this.jumpingAnimation = 0;
@@ -137,6 +147,9 @@ class Player {
 
     toggleJump() {
         this.jumping = true;
+        if (this.onGround()) {
+            this.jumpSound.play();
+        }
     }
 
     jump() {
