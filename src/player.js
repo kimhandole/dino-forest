@@ -153,7 +153,7 @@ class Player {
     }
 
     jump() {
-        const gravity = 0.4;
+        const gravity = 0.44;
         const initialSpeed = 10;
         if (this.jumping) {
             if (this.jumpCount === 0 || !this.onGround()) {

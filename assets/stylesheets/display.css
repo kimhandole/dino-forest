@@ -9,7 +9,7 @@
     font-family: "Amatic SC";
     font-size: 34px;
     position: absolute;
-    margin-top: 9px;
+    margin-top: 8px;
     margin-left: 64px;
     font-weight: 400;
 }
@@ -58,11 +58,15 @@
 }
 
 .author {
-    /* display: none; */
     position: absolute;
     color: white;
     font-family: "Amatic SC";
     margin-left: 16px;
+    display: block;
+}
+
+.author-hide {
+    display: none;
 }
 
 #author-container {

@@ -257,7 +257,7 @@ class Game {
         this.introSound = new Audio("../assets/sounds/intro.mp3");
         this.introSound.loop = true;
         this.introSound.muted = true;
-        this.introSound.volume = 0.2;
+        this.introSound.volume = 0.5;
 
         this.backgroundSound = new Audio("../assets/sounds/background.mp3");
         this.backgroundSound.loop = true;
@@ -274,7 +274,7 @@ class Game {
         this.player = new Player({ position: [84, 712], spriteSheet: this.playerImage });
 
         // start game
-        this.draw();
+        // this.draw();
     }
 
     createPlayer() {
@@ -383,6 +383,9 @@ class Game {
     }
 
     start() {
+        // hide author marquee
+        document.getElementsByClassName("author")[0].classList.add("author-hide");
+
         // sound
         this.introSound.pause();
         this.gameOverSound.pause();
@@ -417,6 +420,9 @@ class Game {
     }
 
     stop() {
+        // show author marquee
+        document.getElementsByClassName("author")[0].classList.remove("author-hide");
+
         // sound
         this.backgroundSound.pause();
         this.gameOverSound.currentTime = 0;

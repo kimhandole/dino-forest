@@ -86,6 +86,5 @@ document.addEventListener('DOMContentLoaded', () => {
         background10Context
     );
 
-    // game.draw()
-
+    game.draw()
 })
