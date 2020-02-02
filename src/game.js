@@ -275,7 +275,7 @@ class Game {
         this.player = new Player({ position: [84, 712], spriteSheet: this.playerImage });
 
         // start game
-        // this.draw();
+        this.draw();
     }
 
     createPlayer() {

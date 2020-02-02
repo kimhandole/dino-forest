@@ -95,7 +95,6 @@ document.addEventListener('DOMContentLoaded', () => {
     )
 
     // landing
-    // setTimeout(() => document.getElementsByClassName("landing-container")[0].style.display = "none", 12000);
     setTimeout(() => fadeOut(document.getElementById("egg")), 8000);
     setTimeout(() => fadeOut(document.getElementById("author-text")), 8000);
 
@@ -103,11 +102,6 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(()=> document.getElementById("sound-question").classList.add("sound-text-show"), 8000);
     setTimeout(()=> document.getElementById("sound-yes").classList.add("sound-text-show"), 8000);
     setTimeout(()=> document.getElementById("sound-no").classList.add("sound-text-show"), 8000);
-
-    // set player keyboard after landing
-    // setTimeout(() => game.setKeyboardListeners(), 10000);
-
-    game.draw()
 })
 
 const fadeOut = (el, smooth = true, displayStyle = 'none') => {
