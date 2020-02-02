@@ -39,13 +39,13 @@ class Score {
                 scoreText = `HI  ${this.highScore()}  ${this.score}`;
             }
 
-            ctx.font = '20px Marker Felt';
+            ctx.font = '30px Amatic SC';
             ctx.strokeStyle = 'black';
-            ctx.lineWidth = 4;
+            ctx.lineWidth = 2;
             ctx.fillStyle = 'white';
             ctx.textAlign = 'right';
-            ctx.strokeText(scoreText, 888, 400);
-            ctx.fillText(scoreText, 888, 400);
+            ctx.strokeText(scoreText, 912, 350);
+            ctx.fillText(scoreText, 912, 350);
 
             // playing
             if (this.isGamePlaying) {

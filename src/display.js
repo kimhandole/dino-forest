@@ -10,9 +10,9 @@ class Display {
     }
 
     info(ctx) {
-        ctx.font = '20px Arial';
+        ctx.font = '32px Amatic SC'
         ctx.strokeStyle = 'black';
-        ctx.lineWidth = 4;
+        ctx.lineWidth = 2;
         ctx.fillStyle = 'white';
         ctx.textAlign = 'center';
         ctx.strokeText(this.gameInfoText, 495, 680);
@@ -22,9 +22,9 @@ class Display {
     draw(ctx) {
         // start
         if (!this.isGameOver) {
-            ctx.font = '20px Arial';
+            ctx.font = '32px Amatic SC';
             ctx.strokeStyle = 'black';
-            ctx.lineWidth = 4;
+            ctx.lineWidth = 2;
             ctx.fillStyle = 'white';
             ctx.textAlign = 'center';
             ctx.strokeText(this.titleText, 495, 530);
@@ -34,9 +34,9 @@ class Display {
         }
         // game over
         else {
-            ctx.font = '20px Arial';
+            ctx.font = '32px Amatic SC';
             ctx.strokeStyle = 'black';
-            ctx.lineWidth = 4;
+            ctx.lineWidth = 2;
             ctx.fillStyle = 'white';
             ctx.textAlign = 'center';
             ctx.strokeText(this.gameOverText, 495, 530);

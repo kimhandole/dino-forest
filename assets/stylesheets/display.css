@@ -6,10 +6,10 @@
 }
 
 .unmute-text {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 20px;
+    font-family: "Amatic SC";
+    font-size: 34px;
     position: absolute;
-    margin-top: 16px;
+    margin-top: 9px;
     margin-left: 64px;
     font-weight: 400;
 }
@@ -55,4 +55,17 @@
     margin-top: 15px;
     width: 34px;
     height: 34px;
+}
+
+.author {
+    /* display: none; */
+    position: absolute;
+    color: white;
+    font-family: "Amatic SC";
+    margin-left: 16px;
+}
+
+#author-container {
+    display: flex;
+    justify-content: center;
 }
