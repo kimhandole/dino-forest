@@ -1,0 +1,24 @@
+.landing-container {
+    position: absolute;
+    background-color: #0c1122;
+    width: 928px;
+    height: 793px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+#egg {
+    margin-top: 240px;
+    width: 256px;
+    height: 256px;
+    opacity: 100 !important;
+    transition: 2s 1s;
+}
+
+#author-text {
+    top: 520px;
+    opacity: 100 !important;
+    transition: 3s 3.6s;
+}

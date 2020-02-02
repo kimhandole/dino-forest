@@ -384,7 +384,7 @@ class Game {
 
     start() {
         // hide author marquee
-        document.getElementsByClassName("author")[0].classList.add("author-hide");
+        document.getElementsByClassName("author")[1].classList.add("author-hide");
 
         // sound
         this.introSound.pause();
@@ -421,7 +421,7 @@ class Game {
 
     stop() {
         // show author marquee
-        document.getElementsByClassName("author")[0].classList.remove("author-hide");
+        document.getElementsByClassName("author")[1].classList.remove("author-hide");
 
         // sound
         this.backgroundSound.pause();

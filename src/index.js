@@ -86,5 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
         background10Context
     );
 
+
+    // landing
+    setTimeout(() => document.getElementsByClassName("landing-container")[0].style.display = "none", 9000);
+
     game.draw()
 })
