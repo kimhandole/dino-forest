@@ -139,6 +139,9 @@ class Game {
                 document.getElementById("mute").src = "../assets/images/display/mute.png";
             }
 
+            // unmute info text
+            document.getElementsByClassName("unmute-text")[0].classList.toggle("unmute-text-none");
+
             // intro
             if (!this.isGamePlaying && !this.isGameOver) {
                 if (this.isMuted) {
