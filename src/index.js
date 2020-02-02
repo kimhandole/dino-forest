@@ -97,13 +97,13 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // landing
-    setTimeout(() => fadeOut(document.getElementById("egg")), 9000);
-    setTimeout(() => fadeOut(document.getElementById("author-text")), 9000);
+    setTimeout(() => fadeOut(document.getElementById("egg")), 6000);
+    setTimeout(() => fadeOut(document.getElementById("author-text")), 6000);
 
     // ask for sound
-    setTimeout(()=> document.getElementById("sound-question").classList.add("sound-text-show"), 9000);
-    setTimeout(()=> document.getElementById("sound-yes").classList.add("sound-text-show"), 9000);
-    setTimeout(()=> document.getElementById("sound-no").classList.add("sound-text-show"), 9000);
+    setTimeout(()=> document.getElementById("sound-question").classList.add("sound-text-show"), 6000);
+    setTimeout(()=> document.getElementById("sound-yes").classList.add("sound-text-show"), 6000);
+    setTimeout(()=> document.getElementById("sound-no").classList.add("sound-text-show"), 6000);
 })
 
 const fadeOut = (el, smooth = true, displayStyle = 'none') => {
