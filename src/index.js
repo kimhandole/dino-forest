@@ -88,11 +88,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // set clicks
     document.getElementById("sound-yes").addEventListener("click", () => {
         document.getElementById("mute").click();
-        document.getElementsByClassName("landing-container")[0].style.display = "none"
+        document.getElementsByClassName("landing-container")[0].style.display = "none";
+        game.setKeyboardListeners();
     });
-    document.getElementById("sound-no").addEventListener("click",
-        () => document.getElementsByClassName("landing-container")[0].style.display = "none"
-    )
+    document.getElementById("sound-no").addEventListener("click", () => {
+        document.getElementsByClassName("landing-container")[0].style.display = "none";
+        game.setKeyboardListeners();
+    });
 
     // landing
     setTimeout(() => fadeOut(document.getElementById("egg")), 8000);
