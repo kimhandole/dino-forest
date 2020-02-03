@@ -1,4 +1,4 @@
-# Dino Forest [live](https://kimhandole.github.io/dino-forest/dist/)
+# Dino Forest ([live](https://kimhandole.github.io/dino-forest/dist/))
 
 ## Background
 Dino Forest is a clone of chrome t-rex endless runner game. The player gets points for running longer distances.
