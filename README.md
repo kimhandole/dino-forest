@@ -25,19 +25,19 @@ All layers into one as below:
 Including game canvas, total of 11 canvases were used.
 ```
 const game = new Game(
-        gameCanvas,
-        gameContext,
-        background1Context,
-        background2Context,
-        background3Context,
-        background4Context,
-        background5Context,
-        background6Context,
-        background7Context,
-        background8Context,
-        background9Context,
-        background10Context
-    );
+    gameCanvas,
+    gameContext,
+    background1Context,
+    background2Context,
+    background3Context,
+    background4Context,
+    background5Context,
+    background6Context,
+    background7Context,
+    background8Context,
+    background9Context,
+    background10Context
+);
 ```
 
 ### Retry Transition Animation
@@ -62,7 +62,7 @@ createPlayer() {
 ```
 
 ### Jump Animation
-Two types of jump sprite will triggered alternatively.
+Two types of jump sprite will triggered in an alternating manner.
 ```
 return this.jumpTypeSwitch ? SPRITES.firstJumpType1 : SPRITES.secondJumpType1;
 ```
@@ -123,7 +123,7 @@ if (obstacleToDeleteIdx) {
 ```
 
 ### High Score
-Score object keeps track of the high score of player.
+Score object keeps track of the high score of the player.
 ```
 class Score {
     constructor() {
@@ -141,7 +141,7 @@ class Score {
 ```
 
 ### Sound
-Mute and unmute are available all time; intro, during game play, and game over.
+Mute and unmute options are available all times: intro, during the game, and at game over.
 ```
 // intro
 if (!this.isGamePlaying && !this.isGameOver) {
