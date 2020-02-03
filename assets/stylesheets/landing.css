@@ -10,7 +10,7 @@
 }
 
 #egg {
-    margin-top: 240px;
+    margin-top: 160px;
     width: 256px;
     height: 256px;
     opacity: 100 !important;
@@ -18,7 +18,7 @@
 }
 
 #author-text {
-    top: 520px;
+    top: 440px;
     opacity: 100 !important;
     transition: 3s 2s;
 }
@@ -30,7 +30,7 @@
 }
 
 #sound-question {
-    margin-top: 300px;
+    margin-top: 230px;
     font-size: 30px;
 }
 

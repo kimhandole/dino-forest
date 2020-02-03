@@ -85,8 +85,13 @@ document.addEventListener('DOMContentLoaded', () => {
         background10Context
     );
     
+    // click sound
+    const clickSound = new Audio("../assets/sounds/click.wav");
+    clickSound.volume = 0.3;
+
     // set clicks
     document.getElementById("sound-yes").addEventListener("click", () => {
+        clickSound.play();
         document.getElementById("mute").click();
         document.getElementsByClassName("landing-container")[0].style.display = "none";
         game.setKeyboardListeners();

@@ -97,6 +97,7 @@ class Game {
         // function calls
         this.setSounds();
         this.setButtonListeners();
+        this.setButtonClickSounds();
         this.createBackground();
         this.createPlayer();
     }
@@ -146,6 +147,7 @@ class Game {
             // intro
             if (!this.isGamePlaying && !this.isGameOver) {
                 if (this.isMuted) {
+                    this.clickSound.play();
                     this.isMuted = false;
                     this.introSound.muted = false;
                     this.backgroundSound.muted = false;
@@ -166,6 +168,7 @@ class Game {
             // during game play
             else if (this.isGamePlaying && !this.isGameOver) {
                 if (this.isMuted) {
+                    this.clickSound.play();
                     this.isMuted = false;
                     this.backgroundSound.muted = false;
                     this.gameOverSound.muted = false;
@@ -184,6 +187,7 @@ class Game {
             // game over
             else if (!this.isGamePlaying && this.isGameOver) {
                 if (this.isMuted) {
+                    this.clickSound.play();
                     this.isMuted = false;
                     this.backgroundSound.muted = false;
                     this.gameOverSound.muted = false;
@@ -269,6 +273,41 @@ class Game {
         this.gameOverSound.loop = true;
         this.gameOverSound.muted = true;
         this.gameOverSound.volume = 0.5;
+
+        this.clickSound = new Audio("../assets/sounds/click.wav");
+        this.clickSound.volume = 0.3;
+    }
+
+    setButtonClickSounds() {
+        document.getElementById("email").addEventListener("click", () => {
+            if (!this.isMuted) {
+                this.clickSound.play();
+            }
+        });
+
+        document.getElementById("github").addEventListener("click", () => {
+            if (!this.isMuted) {
+                this.clickSound.play();
+            }
+        });
+
+        document.getElementById("angelist").addEventListener("click", () => {
+            if (!this.isMuted) {
+                this.clickSound.play();
+            }
+        });
+
+        document.getElementById("linkedin").addEventListener("click", () => {
+            if (!this.isMuted) {
+                this.clickSound.play();
+            }
+        });
+
+        document.getElementById("creater").addEventListener("click", () => {
+            if (!this.isMuted) {
+                this.clickSound.play();
+            }
+        });
     }
 
     setPlayer() {
