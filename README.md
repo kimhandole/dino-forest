@@ -1,44 +1,37 @@
-# endless-runner
+# Dino Forest [live](https://kimhandole.github.io/dino-forest/dist/)
+
 ## Background
-Infinite runner is one of the endless runner games. The player gets points for running longer distances.
+Dino Forest is a clone of chrome t-rex endless runner game. The player gets points for running longer distances.
 
-## Functionality & MVP
-Users will be able to:
-* Start, pause, and reset the game board
-* Jump over obstacles
-In addition, this project will include:
-* An about modal describing the rules of the game
-* A production README
+## Instructions
+* Select sound option by a mouse click
+* Press enter to start play
+* Press space bar to jump
+* Press enter to retry 
 
-## Wireframes
-![Wireframe Image](endless-runner.png "Wireframe Image")
+## Technologies
+* HTML5 / CSS3
+* HTML5 canvas
+* JavaScript
 
-## Architecture and Technologies
-This project will be implemented with the following technologies:
-* `JavaScript` for game logic,
-* `Sprite` slices for animations,
-* Multiple layers of background moves each different speed to give spacy effect,
-* `Firebase` to store gamescore,
-* Sound effects
+## Features and Implementation
+No additional library (ex: jQuery) were used, only native JavaScript DOM manipulation and HTML 5 canvas
 
-## Implementation Timeline
-#### Day 1: Setup all necessary Node modules, including getting webpack up and running
-* Bone frames for nav-bar, title, gameboard
-* Add all root game control files
-#### Day 2: Sprite background 
-* Spite background kit for animation
-* Multiple layers in each different animation for background
-* Implement endless backgrounds 
-#### Day 3: Sprite player and obstacles
-* Sprite player and obstacles
-* Collision logic
-* Player score
-#### Day 4: Sounds and Polishing 
-* Add sounds effects for backgound, jump, collision
-* Add name input form
-* Add global score board using Firebase
+### Parallax 10 Background Layers
 
-## Bonus features
-* Random characters for player
-* Multiple backgrounds as play goes
-* Different obstacles appearance depends on the background
+### Four Dino Characters
+
+### Jump Animations 
+
+### Obstacles
+
+### High Scores
+
+### Sounds
+
+## Legal and Credit
+All art and music assets are used for educational purpose.
+* Dino charaters are made by [Arks](https://twitter.com/scissormarks)
+* Background layers are made by [EderMuniZz](https://twitter.com/EderMuniZz)
+* Icons are made by [Freepik](https://www.flaticon.com/authors/freepik" title="Freepik"), [Pixel perfect](https://www.flaticon.com/authors/pixel-perfect"), [Google](https://www.flaticon.com/authors/google)
+* Musics are from [Ragnarok](http://www.playragnarok2.com/), [Uncharted Waters Online](https://uwo.papayaplay.com/uwo.do), [Lost Ark](https://www.mmorpg.com/lost-ark)
