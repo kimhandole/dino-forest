@@ -51,11 +51,26 @@ return this.jumpTypeSwitch ? SPRITES.firstJumpType1 : SPRITES.secondJumpType1;
 This class is extended by class Torch and Fireplace. 
 Obstacles are randomly generated.
 ```
-createPlayer() {
-    this.playerImage = new Image();
-    this.playerImage.addEventListener("load", this.setPlayer);
-    const player = players[Math.floor(Math.random()*players.length)];
-    this.playerImage.src = player;
+generateRandomObstacle(speed) {
+    let obstacle = null;
+    const obstacleTypes = ["torch", "fireplace1", "fireplace2"];
+    const obstacleType = obstacleTypes[Math.floor(Math.random()*obstacleTypes.length)];
+
+    switch (obstacleType) {
+        case "torch":
+            obstacle = new Torch({ position: [928, 669], speed: speed, spriteSheetSrc: TorchURL });
+            break;
+        case "fireplace1":
+            obstacle = new Fireplace({ position: [928, 669], speed: speed, spriteSheetSrc: Fireplace1URL });
+            break;
+        case "fireplace2":
+            obstacle = new Fireplace({ position: [928, 669], speed: speed, spriteSheetSrc: Fireplace2URL });
+            break;
+        default:
+            obstacle = new Torch({ position: [928, 669], speed: speed, spriteSheet: TorchURL });
+    }
+
+    return obstacle;
 }
 ```
 
