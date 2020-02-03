@@ -33,5 +33,5 @@ No additional library (ex: jQuery) were used, only native JavaScript DOM manipul
 All art and music assets are used for educational purpose.
 * Dino charaters are made by [Arks](https://twitter.com/scissormarks)
 * Background layers are made by [EderMuniZz](https://twitter.com/EderMuniZz)
-* Icons are made by [Freepik](https://www.flaticon.com/authors/freepik" title="Freepik"), [Pixel perfect](https://www.flaticon.com/authors/pixel-perfect"), [Google](https://www.flaticon.com/authors/google)
+* Icons are made by [Freepik](https://www.flaticon.com/authors/freepik"), [Pixel perfect](https://www.flaticon.com/authors/pixel-perfect"), [Google](https://www.flaticon.com/authors/google)
 * Musics are from [Ragnarok](http://www.playragnarok2.com/), [Uncharted Waters Online](https://uwo.papayaplay.com/uwo.do), [Lost Ark](https://www.mmorpg.com/lost-ark)
