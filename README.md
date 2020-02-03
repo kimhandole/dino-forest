@@ -18,7 +18,7 @@ Dino Forest is a clone of chrome t-rex endless runner game. The player gets poin
 No additional library (ex: jQuery) were used, only native JavaScript DOM manipulation and HTML 5 canvas.
 
 ### Parallax Background
-10 different 2D background layers (including lights) are rendered in each different speed to create parallax effect to give viewers 3D effect.
+Ten different 2D background layers (including lights) are each rendered in a different speed to create the parallax effect to give viewers a 3D effect.
 ![Background Layers](background-layers.png)
 All layers into one as below:
 ![Background](background.png)
