@@ -36,7 +36,7 @@ No additional library (ex: jQuery) were used, only native JavaScript DOM manipul
 ### Intoduction Author Screen
 
 ## Legal and Credit
-All art and music assets are used for educational purpose.
+All art and music assets are used for educational purpose on this project.
 * Dino charaters are made by [Arks](https://twitter.com/scissormarks)
 * Background layers are made by [EderMuniZz](https://twitter.com/EderMuniZz)
 * Torch and fireplaces are made by [OcO](https://twitter.com/oco_93)
