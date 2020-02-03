@@ -168,8 +168,6 @@ else if (!this.isGamePlaying && this.isGameOver) {
     }
 }
 ```
-## Author and Creator
-[Han Dole Kim](https://www.linkedin.com/in/han-dole-kim-76979996/)
 
 ## Legal and Credit
 All art and music assets are used for educational purpose on this project.
@@ -178,3 +176,6 @@ All art and music assets are used for educational purpose on this project.
 * Torch and fireplaces are made by [OcO](https://twitter.com/oco_93)
 * Icons are made by [Freepik](https://www.flaticon.com/authors/freepik"), [Pixel perfect](https://www.flaticon.com/authors/pixel-perfect"), [Google](https://www.flaticon.com/authors/google)
 * Musics are from [Uncharted Waters Online](https://uwo.papayaplay.com/uwo.do), [Tales Weaver](http://www.nexon-gt.com/en-US/Game/Category-TALES/), [Lost Ark](https://www.mmorpg.com/lost-ark)
+
+## Author and Creator
+[Han Dole Kim](https://www.linkedin.com/in/han-dole-kim-76979996/)
