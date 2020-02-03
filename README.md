@@ -19,6 +19,8 @@ No additional library (ex: jQuery) were used, only native JavaScript DOM manipul
 
 ### Parallax Background
 
+### Retry Transition Animation
+
 ### Dino Character
 
 ### Jump Animation
@@ -30,6 +32,8 @@ No additional library (ex: jQuery) were used, only native JavaScript DOM manipul
 ### High Score
 
 ### Sound
+
+### Intoduction Author Screen
 
 ## Legal and Credit
 All art and music assets are used for educational purpose.
