@@ -48,8 +48,7 @@ return this.jumpTypeSwitch ? SPRITES.firstJumpType1 : SPRITES.secondJumpType1;
 ```
 
 ### Obstacle 
-This class is extended by class Torch and Fireplace. 
-Obstacles are randomly generated.
+This class is extended by class Torch and Fireplace. Obstacles are randomly generated.
 ```
 generateRandomObstacle(speed) {
     let obstacle = null;
@@ -71,6 +70,35 @@ generateRandomObstacle(speed) {
     }
 
     return obstacle;
+}
+```
+The index of the last obstacle outside of screen will be marked and used to slice obstacles array
+
+```
+this.obstacles.forEach((obstacle, idx) => {
+    ...
+    // mark index of obstacle
+    if (obstacle.outOfBounds()) {
+        obstacleToDeleteIdx = idx;
+    }
+    ...
+});
+
+// delete obstacle
+if (obstacleToDeleteIdx) {
+    this.obstacles = this.obstacles.slice(obstacleToDeleteIdx + 1);
+    const speedOffset = 0.2;
+    this.increaseSpeed(speedOffset);
+}
+```
+
+### Scrolling Speed 
+Scrolling speed is increased as obstacles are deleted
+```
+// delete obstacle
+if (obstacleToDeleteIdx) {
+    ...
+    this.increaseSpeed(speedOffset);
 }
 ```
 
