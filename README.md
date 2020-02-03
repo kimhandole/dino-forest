@@ -26,6 +26,10 @@ No additional library (ex: jQuery) were used, only native JavaScript DOM manipul
 ### Dino Character
 
 ### Jump Animation
+Two types of jump sprite will triggered alternatively.
+```
+return this.jumpTypeSwitch ? SPRITES.firstJumpType1 : SPRITES.secondJumpType1;
+```
 
 ### Obstacle 
 #### Torch
@@ -50,7 +54,7 @@ class Score {
 ```
 
 ### Sound
-Mute and unmute are available all time; intro, during game play, game over.
+Mute and unmute are available all time; intro, during game play, and game over.
 ```
 // intro
 if (!this.isGamePlaying && !this.isGameOver) {
