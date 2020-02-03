@@ -17,17 +17,19 @@ Dino Forest is a clone of chrome t-rex endless runner game. The player gets poin
 ## Features and Implementation
 No additional library (ex: jQuery) were used, only native JavaScript DOM manipulation and HTML 5 canvas
 
-### Parallax 10 Background Layers
+### Parallax Background
 
-### Four Dino Characters
+### Dino Character
 
-### Jump Animations 
+### Jump Animation
 
-### Obstacles
+### Obstacle 
+#### Torch
+#### Fireplace
 
-### High Scores
+### High Score
 
-### Sounds
+### Sound
 
 ## Legal and Credit
 All art and music assets are used for educational purpose.
