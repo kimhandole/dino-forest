@@ -7,6 +7,7 @@ class Score {
     }
 
     start() {
+        this.score = 0;
         this.isGamePlaying = true;
         this.displayScore = true;
     }
@@ -19,7 +20,6 @@ class Score {
     resetScore() {
         this.isGamePlaying = false;
         this.scores.push(this.score);
-        this.score = 0;
     }
 
     increaseScore() {
