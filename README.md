@@ -32,7 +32,7 @@ Four colors of dino characters are randomly generated.
 
 ```
 const players = [Player1URL, Player2URL, Player3URL, Player4URL];
-...
+
 createPlayer() {
     this.playerImage = new Image();
     this.playerImage.addEventListener("load", this.setPlayer);
@@ -48,8 +48,16 @@ return this.jumpTypeSwitch ? SPRITES.firstJumpType1 : SPRITES.secondJumpType1;
 ```
 
 ### Obstacle 
-#### Torch
-#### Fireplace
+This class is extended by class Torch and Fireplace. 
+Obstacles are randomly generated.
+```
+createPlayer() {
+    this.playerImage = new Image();
+    this.playerImage.addEventListener("load", this.setPlayer);
+    const player = players[Math.floor(Math.random()*players.length)];
+    this.playerImage.src = player;
+}
+```
 
 ### High Score
 Score object keeps track of the high score of player
