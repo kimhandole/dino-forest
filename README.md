@@ -41,4 +41,4 @@ All art and music assets are used for educational purpose.
 * Background layers are made by [EderMuniZz](https://twitter.com/EderMuniZz)
 * Torch and fireplaces are made by [OcO](https://twitter.com/oco_93)
 * Icons are made by [Freepik](https://www.flaticon.com/authors/freepik"), [Pixel perfect](https://www.flaticon.com/authors/pixel-perfect"), [Google](https://www.flaticon.com/authors/google)
-* Musics are from [Ragnarok](http://www.playragnarok2.com/), [Uncharted Waters Online](https://uwo.papayaplay.com/uwo.do), [Lost Ark](https://www.mmorpg.com/lost-ark)
+* Musics are from [Ragnarok 2](http://www.playragnarok2.com/), [Uncharted Waters Online](https://uwo.papayaplay.com/uwo.do), [Lost Ark](https://www.mmorpg.com/lost-ark)
