@@ -24,6 +24,22 @@ No additional library (ex: jQuery) were used, only native JavaScript DOM manipul
 ### Retry Transition Animation
 
 ### Dino Character
+Four colors of dino characters are randomly generated.
+* ![Vita](vita.gif) Vita
+* ![Mort](mort.gif) Mort
+* ![Tard](tard.gif) Tard
+* ![Doux](doux.gif) Doux
+
+```
+const players = [Player1URL, Player2URL, Player3URL, Player4URL];
+...
+createPlayer() {
+    this.playerImage = new Image();
+    this.playerImage.addEventListener("load", this.setPlayer);
+    const player = players[Math.floor(Math.random()*players.length)];
+    this.playerImage.src = player;
+}
+```
 
 ### Jump Animation
 Two types of jump sprite will triggered alternatively.
