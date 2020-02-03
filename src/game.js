@@ -83,8 +83,8 @@ class Game {
         // obstacles
         this.obstacles = [];
         this.obstacleInterval = 0;
-        this.obstaclesLimit = 20;
-        this.spawnRate = 100;
+        this.obstaclesLimit = 50;
+        this.spawnRate = 40;
         this.nextSpawn = this.spawnRate + Util.getRandomIntInclusive(0, 150);
     
         // initialize
