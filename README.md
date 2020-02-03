@@ -2,6 +2,7 @@
 
 ## Background
 Dino Forest is a clone of chrome t-rex endless runner game. The player gets points for running longer distances.
+![Background](background.png)
 
 ## Instructions
 * Select sound option by a mouse click
@@ -18,7 +19,6 @@ Dino Forest is a clone of chrome t-rex endless runner game. The player gets poin
 No additional library (ex: jQuery) were used, only native JavaScript DOM manipulation and HTML 5 canvas
 
 ### Parallax Background
-![Background](background.png)
 ![Background Layers](background-layers.png)
 
 ### Retry Transition Animation
