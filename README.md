@@ -32,9 +32,10 @@ No additional library (ex: jQuery) were used, only native JavaScript DOM manipul
 #### Fireplace
 
 ### High Score
-keeps track of the high score
+* keeps track of the high score
 
-`class Score {
+```
+class Score {
     constructor() {
         this.score = 0;
         this.scores = [];
@@ -46,7 +47,9 @@ keeps track of the high score
     highScore() {
         this.scores.sort((a, b) => a - b);
         return this.scores[this.scores.length - 1];
-    }`
+    }
+```
+
 ### Sound
 
 ### Intoduction Author Screen
