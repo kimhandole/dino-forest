@@ -50,9 +50,33 @@ class Score {
 ```
 
 ### Sound
-
-### Intoduction Author Screen
-
+Mute and unmute are available all time; intro, during game play, game over.
+```
+// intro
+if (!this.isGamePlaying && !this.isGameOver) {
+    if (this.isMuted) {
+        ...
+    } else {
+        ...
+    }
+} 
+// during game play
+else if (this.isGamePlaying && !this.isGameOver) {
+    if (this.isMuted) {
+        ...
+    } else {
+        ...
+    }
+}
+// game over
+else if (!this.isGamePlaying && this.isGameOver) {
+    if (this.isMuted) {
+        ...
+    } else {
+        ...
+    }
+}
+```
 ## Legal and Credit
 All art and music assets are used for educational purpose on this project.
 * Dino charaters are made by [Arks](https://twitter.com/scissormarks)
