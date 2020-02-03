@@ -15,13 +15,14 @@ Dino Forest is a clone of chrome t-rex endless runner game. The player gets poin
 * JavaScript
 
 ## Features and Implementation
-No additional library (ex: jQuery) were used, only native JavaScript DOM manipulation and HTML 5 canvas
+No additional library (ex: jQuery) were used, only native JavaScript DOM manipulation and HTML 5 canvas.
 
 ### Parallax Background
 ![Background Layers](background-layers.png)
 ![Background](background.png)
 
 ### Retry Transition Animation
+Game re-starts from the position where the game was over.
 
 ### Dino Character
 Four colors of dino characters are randomly generated.
@@ -72,7 +73,7 @@ generateRandomObstacle(speed) {
     return obstacle;
 }
 ```
-The index of the last obstacle outside of screen will be marked and used to slice obstacles array
+The index of the last obstacle outside of screen will be marked and used to slice obstacles array.
 
 ```
 this.obstacles.forEach((obstacle, idx) => {
@@ -93,7 +94,7 @@ if (obstacleToDeleteIdx) {
 ```
 
 ### Scrolling Speed 
-Scrolling speed is increased as obstacles are deleted
+Scrolling speed is increased as obstacles are deleted.
 ```
 // delete obstacle
 if (obstacleToDeleteIdx) {
@@ -103,7 +104,7 @@ if (obstacleToDeleteIdx) {
 ```
 
 ### High Score
-Score object keeps track of the high score of player
+Score object keeps track of the high score of player.
 ```
 class Score {
     constructor() {
