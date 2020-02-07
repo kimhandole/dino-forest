@@ -209,52 +209,52 @@ class Game {
 
     // backgrounds
     setBackground1() {
-        this.background1 = new Background(this.background1Context, this.background1Image, 0, 928, 0);
+        this.background1 = new Background(this.background1Context, this.background1Image, -120, 928, 0);
         this.background1.draw();
     }
 
     setBackground2() {
-        this.background2 = new Background(this.background2Context, this.background2Image, 0, 928, 0);
+        this.background2 = new Background(this.background2Context, this.background2Image, -120, 928, 0);
         this.background2.draw();
     }
     // light
     setBackground3() {
-        this.background3 = new Background(this.background2Context, this.background2Image, 0, 928, 0);
+        this.background3 = new Background(this.background2Context, this.background2Image, -120, 928, 0);
         this.background3.draw();
     }
 
     setBackground4() {
-        this.background4 = new Background(this.background4Context, this.background4Image, 0, 928, 0);
+        this.background4 = new Background(this.background4Context, this.background4Image, -120, 928, 0);
         this.background4.draw();
     }
 
     setBackground5() {
-        this.background5 = new Background(this.background5Context, this.background5Image, 0, 928, 0);
+        this.background5 = new Background(this.background5Context, this.background5Image, -120, 928, 0);
         this.background5.draw();
     }
     // light
     setBackground6() {
-        this.background6 = new Background(this.background6Context, this.background6Image, 0, 928, 0);
+        this.background6 = new Background(this.background6Context, this.background6Image, -120, 928, 0);
         this.background6.draw();
     }
     // tree bottom
     setBackground7() {
-        this.background7 = new Background(this.background7Context, this.background7Image, 0, 928, 0);
+        this.background7 = new Background(this.background7Context, this.background7Image, -120, 928, 0);
         this.background7.draw();
     }
     // tree top
     setBackground8() {
-        this.background8 = new Background(this.background8Context, this.background8Image, 0, 928, 0);
+        this.background8 = new Background(this.background8Context, this.background8Image, -120, 928, 0);
         this.background8.draw();
     }
     // ground
     setBackground9() {
-        this.background9 = new Background(this.background9Context, this.background9Image, 0, 928, 0);
+        this.background9 = new Background(this.background9Context, this.background9Image, -120, 928, 0);
         this.background9.draw();
     }
     // outter ground
     setBackground10() {
-        this.background10 = new Background(this.background10Context, this.background10Image, 0, 928, 0);
+        this.background10 = new Background(this.background10Context, this.background10Image, -120, 928, 0);
         this.background10.draw();
     }
 
@@ -311,7 +311,7 @@ class Game {
     }
 
     setPlayer() {
-        this.player = new Player({ position: [84, 712], spriteSheet: this.playerImage });
+        this.player = new Player({ position: [84, 582], spriteSheet: this.playerImage });
 
         // start game
         this.draw();
@@ -373,16 +373,16 @@ class Game {
 
         switch (obstacleType) {
             case "torch":
-                obstacle = new Torch({ position: [928, 669], speed: speed, spriteSheetSrc: TorchURL });
+                obstacle = new Torch({ position: [928, 548], speed: speed, spriteSheetSrc: TorchURL });
                 break;
             case "fireplace1":
-                obstacle = new Fireplace({ position: [928, 669], speed: speed, spriteSheetSrc: Fireplace1URL });
+                obstacle = new Fireplace({ position: [928, 548], speed: speed, spriteSheetSrc: Fireplace1URL });
                 break;
             case "fireplace2":
-                obstacle = new Fireplace({ position: [928, 669], speed: speed, spriteSheetSrc: Fireplace2URL });
+                obstacle = new Fireplace({ position: [928, 548], speed: speed, spriteSheetSrc: Fireplace2URL });
                 break;
             default:
-                obstacle = new Torch({ position: [928, 669], speed: speed, spriteSheet: TorchURL });
+                obstacle = new Torch({ position: [928, 548], speed: speed, spriteSheet: TorchURL });
         }
 
         return obstacle;

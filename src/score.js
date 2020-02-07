@@ -44,8 +44,8 @@ class Score {
             ctx.lineWidth = 2;
             ctx.fillStyle = 'white';
             ctx.textAlign = 'right';
-            ctx.strokeText(scoreText, 912, 350);
-            ctx.fillText(scoreText, 912, 350);
+            ctx.strokeText(scoreText, 912, 210);
+            ctx.fillText(scoreText, 912, 210);
 
             // playing
             if (this.isGamePlaying) {
