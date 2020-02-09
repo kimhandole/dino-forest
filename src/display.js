@@ -3,7 +3,7 @@ class Display {
         this.titleText = "DINO FOREST";
         this.startInfoText = "Press ENTER to START";
         this.gameOverText = "GAME OVER";
-        this.restartInfoText = "Press ENTER to RETRY";
+        this.restartInfoText = "Press R to RETRY";
         this.gameInfoText = "Press SPACE BAR to JUMP";
 
         this.isGameOver = false;

@@ -96,6 +96,7 @@ class Game {
         // function calls
         this.setSounds();
         this.setButtonListeners();
+        this.setForm();
         this.setButtonClickSounds();
         this.setSaveScoreButton();
         this.createBackground();
@@ -127,6 +128,10 @@ class Game {
 
     setKeyboardListeners() {
         document.addEventListener('keydown', this.handleKeyboard);
+    }
+
+    removeKeyboardListeners() {
+        document.removeEventListener('keydown', this.handleKeyboard);
     }
 
     // button listeners
@@ -316,6 +321,12 @@ class Game {
         });
     }
 
+    setForm() {
+        var form = document.getElementById("save-name");
+        function handleForm(event) { event.preventDefault(); }
+        form.addEventListener('submit', handleForm);
+    }
+
     setSaveScoreButton() {
         const nickname = document.getElementById("name");
 
@@ -484,8 +495,11 @@ class Game {
         this.score.start();
     }
 
-    stop() {        
-        // reset nickname input 
+    stop() {      
+        // remove keyboard listeners
+        this.removeKeyboardListeners();
+
+        // reset name input 
         this.firebase.resetInput();
 
         // show scoreboard
