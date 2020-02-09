@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const clickSound = new Audio("../assets/sounds/click.wav");
     clickSound.volume = 0.3;
 
-    // set clicks
+    // set sound clicks
     document.getElementById("sound-yes").addEventListener("click", () => {
         clickSound.play();
         document.getElementById("mute").click();

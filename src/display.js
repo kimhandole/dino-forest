@@ -19,11 +19,6 @@ class Display {
         ctx.fillText(this.gameInfoText, 495, 556);
     }
 
-    setHighScore(score) {
-        this.saveScoreText = `⭐️ Submit Your High Score ⭐️`;
-        this.scoreText = `${score}`;
-    }
-
     draw(ctx) {
         // start
         if (!this.isGameOver) {
@@ -44,10 +39,6 @@ class Display {
             ctx.lineWidth = 2;
             ctx.fillStyle = 'white';
             ctx.textAlign = 'center';
-            ctx.strokeText(this.saveScoreText, 485, 160);
-            ctx.fillText(this.saveScoreText, 485, 160);
-            ctx.strokeText(this.scoreText, 485, 200);
-            ctx.fillText(this.scoreText, 485, 200);
             ctx.strokeText(this.gameOverText, 485, 410);
             ctx.fillText(this.gameOverText, 485, 410);
             ctx.strokeText(this.restartInfoText, 485, 556);

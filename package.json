@@ -4,6 +4,7 @@
   "description": "Infinite runner is one of the endless runner games. The player gets points for running longer distances.",
   "main": "webpack.config.js",
   "dependencies": {
+    "firebase": "^7.8.1",
     "webpack": "^4.41.5"
   },
   "devDependencies": {

@@ -5,8 +5,7 @@ import Torch from './torch';
 import Score from './score';
 import Display from './display';
 import Util from './util';
-
-
+import Firebase from './firebase';
 
 // load image files
 const Background1URL = require("../assets/images/background/background-layer1.png");
@@ -92,10 +91,13 @@ class Game {
         this.didUserJump = false;
         this.score = new Score();
         this.display = new Display();
+        this.firebase = new Firebase();
+        
         // function calls
         this.setSounds();
         this.setButtonListeners();
         this.setButtonClickSounds();
+        this.setSaveScoreButton();
         this.createBackground();
         this.createPlayer();
     }
@@ -306,6 +308,25 @@ class Game {
                 this.clickSound.play();
             }
         });
+
+        document.getElementById("save").addEventListener("click", () => {
+            if (!this.isMuted) {
+                this.clickSound.play();
+            }
+        });
+    }
+
+    setSaveScoreButton() {
+        const nickname = document.getElementById("name");
+
+        document.getElementById("save").addEventListener("click", () => {
+            if (nickname.value !== "") {
+                nickname.style.borderColor = "white";
+                this.firebase.saveScore(nickname.value, this.score.highScore());
+            } else {
+                nickname.style.borderColor = "red";
+            }
+        });
     }
 
     setPlayer() {
@@ -421,6 +442,10 @@ class Game {
     }
 
     start() {
+        this.firebase.getScores();
+
+        // hide scoreboard
+        document.getElementsByClassName("scoreboard")[0].classList.add("hide");
         // hide save score
         document.getElementsByClassName("save-score")[0].classList.add("hide");
         // hide author 
@@ -459,7 +484,12 @@ class Game {
         this.score.start();
     }
 
-    stop() {
+    stop() {        
+        // reset nickname input 
+        this.firebase.resetInput();
+
+        // show scoreboard
+        document.getElementsByClassName("scoreboard")[0].classList.remove("hide");
         // show save score
         document.getElementsByClassName("save-score")[0].classList.remove("hide");
         // show author 
@@ -541,7 +571,6 @@ class Game {
             }
 
         } else {
-            this.display.setHighScore(this.score.highScore());
             this.display.draw(this.gameContext);
         }
 
