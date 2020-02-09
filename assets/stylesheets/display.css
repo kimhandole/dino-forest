@@ -75,10 +75,6 @@
     display: block;
 }
 
-.author-hide {
-    display: none;
-}
-
 #author-container {
     display: flex;
     justify-content: center;
@@ -91,4 +87,32 @@
     z-index: 1;
     position: absolute;
     margin-top: 42px;
+}
+
+.save-score {
+    position: absolute;
+    color: white;
+    font-family: "Amatic SC";
+    display: block;
+    margin-top: 236px;
+    margin-left: 346px;
+    font-size: 24px;
+    z-index: 1;
+}
+
+#name {
+    border: 1px solid;
+    padding: 8px 16px;
+    border-radius: 2px;
+    background-color: transparent;
+}
+
+#save {
+    border: 1px solid;
+    padding: 8px 16px;
+    border-radius: 2px;
+}
+
+.hide {
+    display: none;
 }

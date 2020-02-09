@@ -421,8 +421,10 @@ class Game {
     }
 
     start() {
-        // hide author marquee
-        document.getElementsByClassName("author")[1].classList.add("author-hide");
+        // hide save score
+        document.getElementsByClassName("save-score")[0].classList.add("hide");
+        // hide author 
+        document.getElementsByClassName("author")[1].classList.add("hide");
 
         // sound
         this.introSound.pause();
@@ -458,8 +460,10 @@ class Game {
     }
 
     stop() {
-        // show author marquee
-        document.getElementsByClassName("author")[1].classList.remove("author-hide");
+        // show save score
+        document.getElementsByClassName("save-score")[0].classList.remove("hide");
+        // show author 
+        document.getElementsByClassName("author")[1].classList.remove("hide");
 
         // sound
         this.backgroundSound.pause();
@@ -537,6 +541,7 @@ class Game {
             }
 
         } else {
+            this.display.setHighScore(this.score.highScore());
             this.display.draw(this.gameContext);
         }
 
