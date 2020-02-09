@@ -72,11 +72,12 @@
     color: white;
     font-family: "Amatic SC";
     margin-left: 16px;
-    display: block;
+    display: block; 
 }
 
 #author-container {
-    display: flex;
+    /* display: flex; */
+    display: none;
     justify-content: center;
 }
 

@@ -314,7 +314,7 @@ class Game {
             }
         });
 
-        document.getElementById("save").addEventListener("click", () => {
+        document.getElementById("save-name").addEventListener("submit", () => {
             if (!this.isMuted) {
                 this.clickSound.play();
             }
