@@ -60,7 +60,6 @@ class Player {
     }
 
     getSprite() {
-        // console.log(this.position, "POSITION")
         // hurt 
         if (this.hurt) {
             if (this.hurtCount < 7) {
@@ -96,7 +95,6 @@ class Player {
         } 
         // jump
         else if (!this.hurt && this.jumping) {
-            console.log(this.position[1]);
             if (this.jumpingAnimation === 0) {
                 if (this.position[1] < 464) {
                     this.jumpingAnimation = 1;
@@ -194,7 +192,7 @@ class Player {
     }
 
     draw(ctx) {
-        ctx.clearRect(0, 0, 928, 793);
+        ctx.clearRect(0, 0, 928, 673);
 
         // ctx.clearRect(this.position[0]-12, this.position[1]-12, 48, 48);
         const sprite = this.getSprite();

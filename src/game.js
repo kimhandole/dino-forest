@@ -30,8 +30,6 @@ const TorchURL = require("../assets/images/obstacle/torch.png");
 const Fireplace1URL = require("../assets/images/obstacle/fireplace1.png");
 const Fireplace2URL = require("../assets/images/obstacle/fireplace2.png");
 
-
-
 class Game {
     constructor (
         gameCanvas,

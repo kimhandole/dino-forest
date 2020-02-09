@@ -1,5 +1,5 @@
 class Display {
-    constructor() {
+    constructor(rankingBoardContainer, rankingBoard) {
         this.titleText = "DINO FOREST";
         this.startInfoText = "Press ENTER to START";
         this.gameOverText = "GAME OVER";
@@ -39,10 +39,10 @@ class Display {
             ctx.lineWidth = 2;
             ctx.fillStyle = 'white';
             ctx.textAlign = 'center';
-            ctx.strokeText(this.gameOverText, 495, 410);
-            ctx.fillText(this.gameOverText, 495, 410);
-            ctx.strokeText(this.restartInfoText, 495, 556);
-            ctx.fillText(this.restartInfoText, 495, 556);
+            ctx.strokeText(this.gameOverText, 485, 410);
+            ctx.fillText(this.gameOverText, 485, 410);
+            ctx.strokeText(this.restartInfoText, 485, 556);
+            ctx.fillText(this.restartInfoText, 485, 556);
         }
     }
 }

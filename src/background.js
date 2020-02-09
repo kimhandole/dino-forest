@@ -15,7 +15,7 @@ class Background {
 
 
     draw() {
-        this.ctx.clearRect(0, 0, 928, 793);
+        this.ctx.clearRect(0, 0, 928, 673);
         this.ctx.drawImage(this.image, this.x, this.y);
         this.ctx.drawImage(this.image, this.x + this.imageLength, this.y);
 

@@ -83,3 +83,12 @@
     display: flex;
     justify-content: center;
 }
+
+#credit-container {
+    width: 928px;
+    height: 2px;
+    background-color: #0c1122;
+    z-index: 1;
+    position: absolute;
+    margin-top: 42px;
+}
