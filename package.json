@@ -20,6 +20,10 @@
     "type": "git",
     "url": "git+https://github.com/kimhandole/endless-runner.git"
   },
+  "engines": {
+    "node": "10.13.0",
+    "npm": "6.13.4"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
