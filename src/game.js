@@ -74,7 +74,10 @@ class Game {
         this.setPlayer = this.setPlayer.bind(this);
 
         // functions
-        this.handleKeyboard = this.handleKeyboard.bind(this);
+        // this.handleKeyboard = this.handleKeyboard.bind(this);
+        this.handleKeyboardEnter = this.handleKeyboardEnter.bind(this);
+        this.handleKeyboardR = this.handleKeyboardR.bind(this);
+        this.handleKeyboardSpacebar = this.handleKeyboardSpacebar.bind(this);
         this.draw = this.draw.bind(this);
 
         // obstacles
@@ -89,6 +92,7 @@ class Game {
         this.isGamePlaying = false;
         this.isGameOver = false;
         this.didUserJump = false;
+        this.isFirstGame = true;
         this.score = new Score();
         this.display = new Display();
         this.firebase = new Firebase();
@@ -101,10 +105,33 @@ class Game {
         this.setSaveScoreButton();
         this.createBackground();
         this.createPlayer();
+        this.setKeyboardListeners("enter");
     }
 
     // keyboard
-    handleKeyboard(event) {
+    // handleKeyboard(event) {
+    //     // enter
+    //     if (event.keyCode === 13) {
+    //         event.preventDefault();
+    //         if (!this.isGamePlaying) {
+    //             this.start();
+    //         }
+    //     }
+
+    //     // space bar
+    //     if (event.keyCode === 32) {
+    //         event.preventDefault();
+    //         if (this.isGamePlaying) {
+    //             this.player.toggleJump();
+    //         }
+    //         // turn off game info
+    //         if (!this.didUserJump) {
+    //             this.didUserJump = true;
+    //         }
+    //     }
+    // }
+
+    handleKeyboardEnter(event) {
         // enter
         if (event.keyCode === 13) {
             event.preventDefault();
@@ -112,7 +139,9 @@ class Game {
                 this.start();
             }
         }
+    }
 
+    handleKeyboardSpacebar(event) {
         // space bar
         if (event.keyCode === 32) {
             event.preventDefault();
@@ -126,12 +155,48 @@ class Game {
         }
     }
 
-    setKeyboardListeners() {
-        document.addEventListener('keydown', this.handleKeyboard);
+    handleKeyboardR(event) {
+        // reset
+        if (event.keyCode === 82) {
+            event.preventDefault();
+            if (!this.isGamePlaying) {
+                this.start();
+            }
+        }
     }
 
-    removeKeyboardListeners() {
-        document.removeEventListener('keydown', this.handleKeyboard);
+    setKeyboardListeners(key) {
+        // document.addEventListener('keydown', this.handleKeyboard);
+        switch (key) {
+            case "r":
+                document.addEventListener('keydown', this.handleKeyboardR);
+                break;
+            case "enter":
+                document.addEventListener('keydown', this.handleKeyboardEnter);
+                break;
+            case "spacebar":
+                document.addEventListener('keydown', this.handleKeyboardSpacebar);
+                break;
+            default:
+                break;
+        }
+    }
+
+    removeKeyboardListeners(key) {
+        // document.removeEventListener('keydown', this.handleKeyboard);
+        switch (key) {
+            case "r":
+                document.removeEventListener('keydown', this.handleKeyboardR);
+                break;
+            case "enter":
+                document.removeEventListener('keydown', this.handleKeyboardEnter);
+                break;
+            case "spacebar":
+                document.removeEventListener('keydown', this.handleKeyboardSpacebar);
+                break;
+            default:
+                break;
+        }
     }
 
     // button listeners
@@ -431,7 +496,6 @@ class Game {
     }
 
     increaseSpeed(offset) {
-        
         this.background1.speed = this.background1.speed + offset;
         this.background2.speed = this.background2.speed + offset;
         this.background3.speed = this.background3.speed + offset;
@@ -453,6 +517,17 @@ class Game {
     }
 
     start() {
+        // remove key listeners
+        if (this.isFirstGame) {
+            this.removeKeyboardListeners("enter");
+            this.isFirstGame = false;
+        } else {
+            this.removeKeyboardListeners("r");
+        }
+        // set key listeners
+        this.setKeyboardListeners("spacebar");
+
+        // get score on background
         this.firebase.getScores();
 
         // hide scoreboard
@@ -496,8 +571,10 @@ class Game {
     }
 
     stop() {      
-        // remove keyboard listeners
-        this.removeKeyboardListeners();
+        // set key listeners
+        this.setKeyboardListeners("r");
+        // remove key listeners
+        this.removeKeyboardListeners("spacebar");
 
         // reset name input 
         this.firebase.resetInput();
