@@ -5,7 +5,8 @@
   "main": "webpack.config.js",
   "dependencies": {
     "firebase": "^7.8.1",
-    "webpack": "^4.41.5"
+    "webpack": "^4.41.5",
+    "express": "*"
   },
   "devDependencies": {
     "file-loader": "^4.0.0",
