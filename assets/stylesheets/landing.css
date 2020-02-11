@@ -13,14 +13,44 @@
     margin-top: 160px;
     width: 256px;
     height: 256px;
-    opacity: 100 !important;
-    transition: 2s 1s;
+    animation: moveDown 2s ease-out, appear 2s ease-out;
 }
+
+@keyframes moveDown {
+    0% {
+        margin-top: 100px;
+    }
+    100% {
+        margin-top: 160px;
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 100;
+    }
+}
+
 
 #author-text {
     top: 440px;
-    opacity: 100 !important;
-    transition: 3s 2s;
+    opacity: 0;
+    /* transition: 3s 2s; */
+    animation: moveRight 5s linear, appear 5s linear;
+    animation-delay: 2s;
+}
+
+@keyframes moveRight {
+    0% {
+        padding-right: 30px;
+    }
+    100% {
+        padding-right: 0px;
+
+    }
 }
 
 .sound-text {
