@@ -29,6 +29,9 @@
     0% {
         opacity: 0;
     }
+    90% {
+        opacity: 100;
+    }
     100% {
         opacity: 100;
     }
@@ -38,8 +41,7 @@
 #author-text {
     top: 440px;
     opacity: 0;
-    /* transition: 3s 2s; */
-    animation: moveRight 5s linear, appear 5s linear;
+    animation: moveRight 4s ease-out, appear 4s ease-out;
     animation-delay: 2s;
 }
 
@@ -47,9 +49,11 @@
     0% {
         padding-right: 30px;
     }
+    90% {
+        padding-right: 0px;
+    }
     100% {
         padding-right: 0px;
-
     }
 }
 
