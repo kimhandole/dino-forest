@@ -5,8 +5,7 @@
   "main": "webpack.config.js",
   "dependencies": {
     "firebase": "^7.8.1",
-    "webpack": "^4.41.5",
-    "express": "*"
+    "webpack": "^4.41.5"
   },
   "devDependencies": {
     "file-loader": "^4.0.0",
@@ -14,8 +13,7 @@
     "webpack-cli": "^3.3.10"
   },
   "scripts": {
-    "start": "node server.js",
-    "heroku-postbuild": "webpack -p"
+    "webpack": "webpack --watch --mode=development"
   },
   "repository": {
     "type": "git",
