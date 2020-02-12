@@ -173,20 +173,10 @@ saveScore(name, score) {
         score: score
     })
     .then(() => {            
-        const nickname = document.getElementById("name");
-        nickname.disabled = true;
-
-        const saveBtn = document.getElementById("save");
-        saveBtn.disabled = true;
-        saveBtn.value = "Score Saved"
-        saveBtn.style.backgroundColor = "white";
-        saveBtn.style.color = "black"
+        ...
     })
     .catch((error) => {
-        const saveBtn = document.getElementById("save");
-        saveBtn.value = "Try Again"
-        saveBtn.style.backgroundColor = "red";
-        saveBtn.style.borderColor = "red";
+        ...
     });
 }
 ```
