@@ -23,7 +23,7 @@ Dino Forest is a clone of Google Chrome T-Rex endless runner game. The player ge
 Ten different 2D background layers (including lights) are each rendered in a different speed to create the parallax effect to give viewers a 3D effect.
 ![Background Layers](./assets/readme/background-layers.png)
 All layers into one as below:
-![Background](background.png)
+![Background](./assets/readme/background.png)
 Including game canvas, total of 11 canvases were used.
 ```
 const game = new Game(
@@ -47,10 +47,10 @@ Game re-starts from the position where the game was over.
 
 ### Dino Character
 Four colors of dino characters are randomly generated.
-* ![Vita](vita.gif) Vita
-* ![Mort](mort.gif) Mort
-* ![Tard](tard.gif) Tard
-* ![Doux](doux.gif) Doux
+* ![Vita](./assets/readme/vita.gif) Vita
+* ![Mort](./assets/readme/mort.gif) Mort
+* ![Tard](./assets/readme/tard.gif) Tard
+* ![Doux](./assets/readme/doux.gif) Doux
 
 ```
 const players = [Player1URL, Player2URL, Player3URL, Player4URL];
