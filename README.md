@@ -164,6 +164,30 @@ getScores() {
 }
 ```
 
+### Validation and Error Handling
+Name input to save high score has validation on empty value or error. 
+```
+saveScore(name, score) {
+    this.db.collection("scores").doc().set({
+        name: name,
+        score: score
+    })
+    .then(() => {            
+        const nickname = document.getElementById("name");
+        nickname.disabled = true;
+
+        const saveBtn = document.getElementById("save");
+        saveBtn.disabled = true;
+        ...
+    })
+    .catch((error) => {
+        const saveBtn = document.getElementById("save");
+        saveBtn.value = "Try Again"
+        ...
+    });
+}
+```
+
 ### Landing Animation
 Animations on landing intro implemented using keyframes.
 ```
@@ -227,30 +251,6 @@ else if (!this.isGamePlaying && this.isGameOver) {
     } else {
         ...
     }
-}
-```
-
-### Validation and Error Handling
-Name input to save high score has validation on empty value or error. 
-```
-saveScore(name, score) {
-    this.db.collection("scores").doc().set({
-        name: name,
-        score: score
-    })
-    .then(() => {            
-        const nickname = document.getElementById("name");
-        nickname.disabled = true;
-
-        const saveBtn = document.getElementById("save");
-        saveBtn.disabled = true;
-        ...
-    })
-    .catch((error) => {
-        const saveBtn = document.getElementById("save");
-        saveBtn.value = "Try Again"
-        ...
-    });
 }
 ```
 
