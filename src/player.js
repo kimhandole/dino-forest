@@ -23,7 +23,7 @@ const SPRITES = {
 const PLAYER_HITBOX_OFFSET = {
     posX: 6,
     posY: 6,
-    sizeX: 28,
+    sizeX: 24,
     sizeY: 28,
 };
 
