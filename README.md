@@ -7,7 +7,7 @@ Dino Forest is a clone of Google Chrome T-Rex endless runner game. The player ge
 1. Select sound option by a mouse click
 2. Press enter to start play
 3. Press space bar to jump
-4. Press enter to retry 
+4. Press r to retry 
 
 ## Technologies
 * HTML5 / CSS3
