@@ -27,7 +27,7 @@ class Firebase {
             name: name,
             score: score
         })
-        .then(function () {            
+        .then(() => {            
             const nickname = document.getElementById("name");
             nickname.disabled = true;
     
@@ -37,7 +37,7 @@ class Firebase {
             saveBtn.style.backgroundColor = "white";
             saveBtn.style.color = "black"
         })
-        .catch(function (error) {
+        .catch((error) => {
             const saveBtn = document.getElementById("save");
             saveBtn.value = "Try Again"
             saveBtn.style.backgroundColor = "red";

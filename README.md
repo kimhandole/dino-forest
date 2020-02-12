@@ -13,9 +13,11 @@ Dino Forest is a clone of Google Chrome T-Rex endless runner game. The player ge
 * HTML5 / CSS3
 * HTML5 canvas
 * JavaScript
+* Firebase
 
 ## Features and Implementation
-No additional libraries (ex: jQuery) were used, only native JavaScript DOM manipulation and HTML 5 canvas.
+* No additional libraries (ex: jQuery) were used, only native JavaScript DOM manipulation and HTML 5 canvas.
+* Global ranking implemented using Google Firebase.
 
 ### Parallax Background
 Ten different 2D background layers (including lights) are each rendered in a different speed to create the parallax effect to give viewers a 3D effect.
@@ -137,6 +139,94 @@ class Score {
         return this.scores[this.scores.length - 1];
     }
     ...
+}
+```
+
+### Ranking
+Display top 5 score with name stored in Firebase database.
+```
+getScores() {
+    // Clear current scores in scoreboard
+    document.getElementById('scoreboard').innerHTML = '<tr><th>Rank</th><th>Name</th><th>Score</th></tr>';
+
+    // Get the top 5 scores from scoreboard
+    this.db.collection("scores").orderBy("score", "desc").limit(5).get().then((snapshot) => {
+        let rank = 0;
+        snapshot.forEach((doc) => {
+            rank += 1;
+            document.getElementById('scoreboard').innerHTML += '<tr>' +
+                '<td>' + rank + '</td>' +
+                '<td>' + doc.data().name + '</td>' +
+                '<td>' + doc.data().score + '</td>' +
+                '</tr>';
+        })
+    })
+}
+```
+
+### Validation
+Name input to save high score has validation on empty value and styled to let user know. 
+Invalid: ![Invalid](invalid.png)
+Valid and saved: ![Valid](valid.png)
+```
+saveScore(name, score) {
+    this.db.collection("scores").doc().set({
+        name: name,
+        score: score
+    })
+    .then(() => {            
+        const nickname = document.getElementById("name");
+        nickname.disabled = true;
+
+        const saveBtn = document.getElementById("save");
+        saveBtn.disabled = true;
+        saveBtn.value = "Score Saved"
+        saveBtn.style.backgroundColor = "white";
+        saveBtn.style.color = "black"
+    })
+    .catch((error) => {
+        const saveBtn = document.getElementById("save");
+        saveBtn.value = "Try Again"
+        saveBtn.style.backgroundColor = "red";
+        saveBtn.style.borderColor = "red";
+    });
+}
+```
+
+### Landing Animation
+Animations on landing intro implemented using keyframes.
+```
+@keyframes moveDown {
+    0% {
+        margin-top: 100px;
+    }
+    100% {
+        margin-top: 160px;
+    }
+}
+
+@keyframes appear {
+    0% {
+        opacity: 0;
+    }
+    90% {
+        opacity: 100;
+    }
+    100% {
+        opacity: 100;
+    }
+}
+
+@keyframes moveRight {
+    0% {
+        padding-right: 30px;
+    }
+    90% {
+        padding-right: 0px;
+    }
+    100% {
+        padding-right: 0px;
+    }
 }
 ```
 
