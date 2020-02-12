@@ -165,7 +165,7 @@ getScores() {
 ```
 
 ### Validation and Error Handling
-Name input to save high score has validation on empty value and error. 
+Name input to save high score has validation on empty value or error. 
 ```
 saveScore(name, score) {
     this.db.collection("scores").doc().set({
@@ -190,8 +190,6 @@ saveScore(name, score) {
     });
 }
 ```
-* Invalid: ![Invalid](invalid.png)
-* Valid: ![Valid](valid.png)
 
 ### Landing Animation
 Animations on landing intro implemented using keyframes.
