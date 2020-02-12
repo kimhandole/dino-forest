@@ -173,9 +173,16 @@ saveScore(name, score) {
         score: score
     })
     .then(() => {            
+        const nickname = document.getElementById("name");
+        nickname.disabled = true;
+
+        const saveBtn = document.getElementById("save");
+        saveBtn.disabled = true;
         ...
     })
     .catch((error) => {
+        const saveBtn = document.getElementById("save");
+        saveBtn.value = "Try Again"
         ...
     });
 }
