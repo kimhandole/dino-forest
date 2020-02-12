@@ -21,7 +21,7 @@ Dino Forest is a clone of Google Chrome T-Rex endless runner game. The player ge
 
 ### Parallax Background
 Ten different 2D background layers (including lights) are each rendered in a different speed to create the parallax effect to give viewers a 3D effect.
-![Background Layers](background-layers.png)
+![Background Layers](./assets/readme/background-layers.png)
 All layers into one as below:
 ![Background](background.png)
 Including game canvas, total of 11 canvases were used.
