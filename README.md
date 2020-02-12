@@ -13,7 +13,7 @@ Dino Forest is a clone of Google Chrome T-Rex endless runner game. The player ge
 * HTML5 / CSS3
 * HTML5 canvas
 * JavaScript
-* Firebase
+* Google Firebase
 
 ## Features and Implementation
 * No additional libraries (ex: jQuery) were used, only native JavaScript DOM manipulation and HTML 5 canvas.
