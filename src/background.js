@@ -1,5 +1,4 @@
 class Background {
-
     constructor(ctx, image, posY, imageLength, speed) {
         this.image = image;
         this.speed = speed;
@@ -12,7 +11,6 @@ class Background {
     scrollImage() {
         this.x -= this.speed;
     }
-
 
     draw() {
         this.ctx.clearRect(0, 0, 928, 673);

@@ -108,29 +108,7 @@ class Game {
         this.setKeyboardListeners("enter");
     }
 
-    // keyboard
-    // handleKeyboard(event) {
-    //     // enter
-    //     if (event.keyCode === 13) {
-    //         event.preventDefault();
-    //         if (!this.isGamePlaying) {
-    //             this.start();
-    //         }
-    //     }
-
-    //     // space bar
-    //     if (event.keyCode === 32) {
-    //         event.preventDefault();
-    //         if (this.isGamePlaying) {
-    //             this.player.toggleJump();
-    //         }
-    //         // turn off game info
-    //         if (!this.didUserJump) {
-    //             this.didUserJump = true;
-    //         }
-    //     }
-    // }
-
+    // keyboards
     handleKeyboardEnter(event) {
         // enter
         if (event.keyCode === 13) {

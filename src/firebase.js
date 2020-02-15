@@ -78,7 +78,6 @@ class Firebase {
         saveBtn.style.color = "white"
         saveBtn.style.borderColor = "white";
     }
-
 }
 
 export default Firebase;

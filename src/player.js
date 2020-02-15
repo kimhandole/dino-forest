@@ -194,9 +194,7 @@ class Player {
     draw(ctx) {
         ctx.clearRect(0, 0, 928, 673);
 
-        // ctx.clearRect(this.position[0]-12, this.position[1]-12, 48, 48);
         const sprite = this.getSprite();
-        // console.log(this.spriteSheet);
         ctx.drawImage(
             this.spriteSheet,
             sprite[0],
