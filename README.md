@@ -263,4 +263,4 @@ All art and music assets are used for educational purpose on this project.
 * Musics are from [Uncharted Waters Online](https://uwo.papayaplay.com/uwo.do), [Tales Weaver](http://www.nexon-gt.com/en-US/Game/Category-TALES/), [Lost Ark](https://www.mmorpg.com/lost-ark)
 
 ## Author and Creator
-[Han Dole Kim](https://www.linkedin.com/in/han-dole-kim-76979996/)
+[Han Dole Kim](https://handolekim.com/)
