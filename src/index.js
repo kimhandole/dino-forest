@@ -95,10 +95,14 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById("mute").click();
         document.getElementsByClassName("landing-container")[0].style.display = "none";
         game.setKeyboardListeners();
+        // game start
+        game.draw();
     });
     document.getElementById("sound-no").addEventListener("click", () => {
         document.getElementsByClassName("landing-container")[0].style.display = "none";
         game.setKeyboardListeners();
+        // game start
+        game.draw();
     });
 
     // landing
