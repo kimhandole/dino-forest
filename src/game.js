@@ -591,16 +591,36 @@ class Game {
         requestAnimationFrame(this.draw)
 
         // backgrounds
-        this.background1.draw();
-        this.background2.draw();
-        this.background3.draw();
-        this.background4.draw();
-        this.background5.draw();
-        this.background6.draw();
-        this.background7.draw();
-        this.background8.draw();
-        this.background9.draw();
-        this.background10.draw();
+        if (this.background1) {
+            this.background1.draw();
+        }
+        if (this.background2) {
+            this.background2.draw();
+        }
+        if (this.background3) {
+            this.background3.draw();
+        }
+        if (this.background4) {
+            this.background4.draw();
+        }
+        if (this.background5) {
+            this.background5.draw();
+        }
+        if (this.background6) {
+            this.background6.draw();
+        }
+        if (this.background7) {
+            this.background7.draw();
+        }
+        if (this.background8) {
+            this.background8.draw();
+        }
+        if (this.background9) {
+            this.background9.draw();
+        }
+        if (this.background10) {
+            this.background10.draw();
+        }
 
         // player
         this.player.update(this.gameContext)
