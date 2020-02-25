@@ -33,12 +33,12 @@ class Player {
         this.spriteSheet = options.spriteSheet;
 
         // jump sound
-        this.jumpSound = new Audio('../assets/sounds/jump.wav');
+        this.jumpSound = new Audio('./assets/sounds/jump.wav');
         this.jumpSound.volume = 0.2;
         this.jumpSound.muted = true;
 
         // dead sound
-        this.deadSound = new Audio('../assets/sounds/dead.wav');
+        this.deadSound = new Audio('./assets/sounds/dead.wav');
         this.deadSound.volume = 0.1;
         this.deadSound.muted = true;
 

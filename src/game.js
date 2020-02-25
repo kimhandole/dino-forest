@@ -184,9 +184,9 @@ class Game {
 
             // mute button image
             if (this.isMuted) {
-                document.getElementById("mute").src = "../assets/images/display/speaker.png";
+                document.getElementById("mute").src = "./assets/images/display/speaker.png";
             } else {
-                document.getElementById("mute").src = "../assets/images/display/mute.png";
+                document.getElementById("mute").src = "./assets/images/display/mute.png";
             }
 
             // unmute info text
@@ -307,22 +307,22 @@ class Game {
     }
 
     setSounds() {
-        this.introSound = new Audio("../assets/sounds/intro.mp3");
+        this.introSound = new Audio("./assets/sounds/intro.mp3");
         this.introSound.loop = true;
         this.introSound.muted = true;
         this.introSound.volume = 0.5;
 
-        this.backgroundSound = new Audio("../assets/sounds/background.mp3");
+        this.backgroundSound = new Audio("./assets/sounds/background.mp3");
         this.backgroundSound.loop = true;
         this.backgroundSound.muted = true;
         this.backgroundSound.volume = 0.5;
         
-        this.gameOverSound = new Audio("../assets/sounds/gameover.mp3");
+        this.gameOverSound = new Audio("./assets/sounds/gameover.mp3");
         this.gameOverSound.loop = true;
         this.gameOverSound.muted = true;
         this.gameOverSound.volume = 0.5;
 
-        this.clickSound = new Audio("../assets/sounds/click.wav");
+        this.clickSound = new Audio("./assets/sounds/click.wav");
         this.clickSound.volume = 0.3;
     }
 

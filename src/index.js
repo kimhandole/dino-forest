@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
     );
     
     // click sound
-    const clickSound = new Audio("../assets/sounds/click.wav");
+    const clickSound = new Audio("./assets/sounds/click.wav");
     clickSound.volume = 0.3;
 
     // set sound clicks
