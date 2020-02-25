@@ -18,7 +18,7 @@ class Background {
         this.ctx.drawImage(this.image, this.x + this.imageLength, this.y);
 
         if (this.x <= -this.imageLength) {
-            this.x = 0;
+            this.x = 30;
         }
 
         this.scrollImage();
